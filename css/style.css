@@ -60,13 +60,18 @@ img { border: 1px solid #808080; display: inline-block; }
 	padding: 0px;
 	border-top: 1px solid #606060;
 }
-#objects h2, #objects ul li {
+#objects h2, #objects ul li .object {
 	padding: 0.5em 1em;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
+#objects ul li { display: inline-block; width: 25%; line-height: 2em; }
 #objects ul li:hover {
 	background-color: #e6e6e6;
 	cursor: pointer;
 }
+#objects .thumb { display: inline-block; float: left; margin-right: 0.5em; height: 2em;}
+#objects .thumb img { width: 2em; height: 2em;}
 #objects .score { float: right; display: inline-block; font-weight: bold; }
 
 
@@ -268,15 +273,25 @@ img { border: 1px solid #808080; display: inline-block; }
 }
 
 
-@media only screen and (max-width: 730px){
+@media only screen and (max-width: 1200px){
+	#objects ul li { width: 33%; }
+}
 
+@media only screen and (max-width: 900px){
+	#objects ul li { width: 50%; }
+}
+
+@media only screen and (max-width: 600px){
+	#objects ul li { width: 100%; }
+}
+
+@media only screen and (max-width: 730px){
 	#selector .leftcol { border-right: 0; }
 	.comparison .leftcol { margin-bottom: 1em; width: auto; text-align: center; }
 	#selector, .row, .col { display: block; }
 	.answers .visible { display: none; }
 	#tools, #average { display: block; float: none; text-align: center; }
 	#average { margin-top: 1em; }
-
 }
 
 @media only screen and (max-width: 600px){

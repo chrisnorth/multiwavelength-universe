@@ -162,7 +162,7 @@
 		// Update the objects
 		var html = "";
 		for(var o = 0 ; o < d.objects.length ; o++){
-			html += '<li data="'+o+'"><span="object">'+d.objects[o].name+'<\/span> <div class="score" data="0"><\/div>';
+			html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+d.objects[o].images.visible.file+'" /></div><span>'+d.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
 		}
 		$('#objects ul').html(html);
 		$('#objects ul li').on('click',{me:this},function(e){
