@@ -314,6 +314,7 @@
 
 	Activity.prototype.setImage = function(src){
 
+		$('.wavelengths .wavelength.'+this.key).removeClass('correct wrong');
 		$('.wavelengths .wavelength.'+this.key+' img').attr('src',(src ? src : this.image));
 		
 		// Check if the check button can be enabled
