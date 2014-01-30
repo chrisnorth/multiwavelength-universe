@@ -272,17 +272,26 @@ img { border: 1px solid #808080; display: inline-block; }
 	cursor: default;
 }
 
-
-@media only screen and (max-width: 1200px){
-	#objects ul li { width: 33%; }
+@media only screen and (min-width: 1200px){
+	#objects ul li:nth-child(4n) .object { border-right: 0px; }
+	#objects ul li:nth-last-child(-n+4) .object { border-bottom: 0px; }
 }
 
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 1200px) and (min-width: 900px){
+	#objects ul li { width: 33.33%; }
+	#objects ul li:nth-child(3n) .object { border-right: 0px; }
+	#objects ul li:nth-last-child(-n+3) .object { border-bottom: 0px; }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 600px){
 	#objects ul li { width: 50%; }
+	#objects ul li:nth-child(2n) .object { border-right: 0px; }
+	#objects ul li:nth-last-child(-n+2) .object { border-bottom: 0px; }
 }
 
 @media only screen and (max-width: 600px){
 	#objects ul li { width: 100%; }
+	#objects ul li .object { border-right: 0px; }
 }
 
 @media only screen and (max-width: 730px){
