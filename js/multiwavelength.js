@@ -167,6 +167,8 @@
 		$('#objects ul').html(html);
 		$('#objects ul li').on('click',{me:this},function(e){
 			e.data.me.changeObject($(this).attr('data'));
+			$('#objects ul li').removeClass('selected');
+			$(this).addClass('selected');
 			$('#objects h2').trigger('click');
 		});
 

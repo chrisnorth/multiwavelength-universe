@@ -65,13 +65,11 @@ img { border: 1px solid #808080; display: inline-block; }
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
-#objects ul li { display: inline-block; width: 25%; line-height: 2em; }
-#objects ul li:hover {
-	background-color: #e6e6e6;
-	cursor: pointer;
-}
+#objects ul li { display: inline-block; width: 25%; line-height: 2em; cursor: pointer; }
+#objects ul li.selected { background-color: #fee57f; }
+#objects ul li:hover { background-color: #e6e6e6; }
 #objects .thumb { display: inline-block; float: left; margin-right: 0.5em; height: 2em;}
-#objects .thumb img { width: 2em; height: 2em;}
+#objects .thumb img { width: 2em; height: 2em; border: 0px; }
 #objects .score { float: right; display: inline-block; font-weight: bold; }
 
 
@@ -228,7 +226,7 @@ img { border: 1px solid #808080; display: inline-block; }
 	-webkit-transition:background-position .1s linear;
 	-moz-transition:background-position .1s linear;
 	-o-transition:background-position .1s linear;
-	transition:background-position .1s linear
+	transition:background-position .1s linear;
 }
 .btn:focus{
 	outline:thin dotted inherit;
