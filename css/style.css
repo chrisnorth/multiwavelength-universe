@@ -103,6 +103,8 @@ img { border: 1px solid #808080; display: inline-block; }
 	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 .wavelength { position: relative; padding: 0px; margin: 0px; }
+.wavelength.correct img  { box-shadow: 0 0 4px 4px #009d00; -moz-box-shadow: 0 0 4px #009d00; -webkit-box-shadow: 0 0 4px #009d00; }
+.wavelength.wrong img { box-shadow: 0 0 4px 4px #df0000; -moz-box-shadow: 0 0 4px #df0000; -webkit-box-shadow: 0 0 4px #df0000; }
 .leftcol .wavelength { width: 100%; }
 .wavelength { text-align: center; }
 .wavelength .label { text-decoration: none; color: inherit; line-height: 1em; text-align: center; margin: 0px; padding: 1em 0 0.5em 0; position: relative; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

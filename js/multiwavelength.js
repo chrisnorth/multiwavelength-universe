@@ -349,7 +349,12 @@
 		var key = "";
 		for(var i = 0; i < ws.length ; i++){
 			key = $(ws[i]).attr('data');
-			if($(ws[i]).find('img').attr('src')=='images/'+key+'/'+this.data.objects[this.id].images[key].file) n++;
+			if($(ws[i]).find('img').attr('src')=='images/'+key+'/'+this.data.objects[this.id].images[key].file){
+				n++;
+				$(ws[i]).addClass('correct');
+			}else{
+				$(ws[i]).addClass('wrong');
+			}
 		}
 
 		// Make the 'more info' button active

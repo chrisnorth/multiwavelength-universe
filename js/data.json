@@ -15,7 +15,7 @@
 	},
 	"check" : {
 		"button" : "Check your answers",
-		"result" : "Result: %SCORE%",
+		"result" : "You got %SCORE% correct",
 		"average" : "Average score:"
 	},
 	"info" : {
