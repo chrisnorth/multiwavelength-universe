@@ -62,6 +62,8 @@ img { border: 1px solid #808080; display: inline-block; }
 }
 #objects h2, #objects ul li .object {
 	padding: 0.5em 1em;
+}
+#objects ul li .object {
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
