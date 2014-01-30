@@ -312,7 +312,7 @@
 				"credit" : "Rob Gendler"
 			},
 			"fir" : {
-				"file": "m81_fir_herschel.png",
+				"file": "m81_fir_herschel.jpg",
 				"credit" : "Herschel"
 			},
 			"radio" : {
@@ -341,7 +341,7 @@
 				"credit": "Rob Gendler"
 			},
 			"fir" : {
-				"file": "m82_fir_herschel.png",
+				"file": "m82_fir_herschel.jpg",
 				"credit" : "Herschel"
 			},
 			"radio" : {
@@ -378,7 +378,7 @@
 				"credit" : "NRAO"
 			},
 			"fir" : {
-				"file" : "m87_fir_herschel.png",
+				"file" : "m87_fir_herschel.jpg",
 				"credit" : "Herschel"
 			},
 			"mir" : {
