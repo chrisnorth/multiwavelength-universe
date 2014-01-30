@@ -143,7 +143,7 @@
 		});
 		// Pick a random banner
 		var b = d.banners[Math.round((d.banners.length-1)*Math.random())];
-		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+d.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner"><h2>'+d.help.title+'<\/h2>'+d.help.html+'<\/div>');
+		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+d.help.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner">'+d.help.html+'<\/div>');
 		if(fullScreenApi.supportsFullScreen){
 			$('#menu a').after('<img src="images/fullscreen.png" class="fullscreenbtn" />');
 			// Bind the fullscreen function to the double-click event if the browser supports fullscreen
@@ -281,6 +281,7 @@
 
 					$('.wavelengths .wavelength').removeClass('selected');
 					$('.wavelengths .wavelength.'+w).addClass('selected');
+					$('#selector').removeClass().addClass(w);
 				}
 			}
 
