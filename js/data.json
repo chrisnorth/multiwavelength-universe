@@ -196,7 +196,7 @@
 				"credit": "IRAS"
 			},
 			"radio" : {
-				"file": "lmc_radio_rauib.gif",
+				"file": "lmc_radio_rauib.jpg",
 				"credit": "RAUIB"
 			},
 			"uv" : {
@@ -407,7 +407,7 @@
 				"credit" : "2MASS"
 			},
 			"radio" : {
-				"file": "m104_radio_vla_magfield.gif",
+				"file": "m104_radio_vla_magfield.jpg",
 				"credit": "VLA"
 			},
 			"mir" : {
