@@ -64,7 +64,7 @@
 		"name" : "Centaurus A",
 		"images" : {
 			"visible" : {
-				"file": "cena_vis_square.png",
+				"file": "cena_vis_square.jpg",
 				"credit": "NOAO"
 			},
 			"fir" : {
@@ -188,7 +188,7 @@
 		"name" : "Large Magellanic Cloud",
 		"images" : {
 			"visible" : {
-				"file": "lmc_vis_square.png",
+				"file": "lmc_vis_square.jpg",
 				"credit": ""
 			},
 			"fir" : {
@@ -399,7 +399,7 @@
 		"name" : "Messier 104",
 		"images" : {
 			"visible" : {
-				"file": "m104_vis_hst.png",
+				"file": "m104_vis_hst.jpg",
 				"credit": "Hubble"
 			},
 			"nir" : {
