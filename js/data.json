@@ -1,0 +1,428 @@
+{
+	"title": "Multi-Wavelength Universe",
+	"help": {
+		"label": "Help",
+		"title": "About this activity",
+		"html": "<p>The aim of this activity is to match images of astronomical objects, observed in different wavelengths, with the object's visible image (a composite image made up of a red, green and blue images).</p>\n<p>Where to start...</p>\n<ol>\n<li>Select an astronomical object from the &quot;Select Object&quot; list. This object's visible image will then be displayed.</li>\n<li>Select a wavelength - radio, far-infrared, mid-infrared, UV or X-ray - to see a random list of images of objects taken in that wavelength. Look through the suggestions and select the one you think is a match and it will be added to your answer grid. Think about the object such as its shape and size in the different wavelengths. What could that visible object, now in a different wavelength, reveal?</li>\n<li>Once you have selected an image from each of the available wavelengths press the <button class=\"btn btn-primary btn-inline\">Check your answers</button> button to see if your selections are correct. More Information about the object, such as its history and what the different wavelength images reveal about the object, will then become available.</li>\n</ol>"
+	},
+	"selectobject" : {
+		"title": "Select object",
+		"withobject": "Object: %OBJECT%"
+	},
+	"instructions" : {
+		"visible": "The visible light image",
+		"select" : "Choose the corresponding %WAVELENGTH% image"
+	},
+	"check" : {
+		"button" : "Check your answers",
+		"result" : "Result: %SCORE%",
+		"average" : "Average score:"
+	},
+	"info" : {
+		"title" : "Information",
+		"button" : "More information about this object"
+	},
+	"banners": [{
+		"credit": "ESA/NASA/Herschel/Hubble/DSS",
+		"file": "images/banner2.jpg"
+	},{
+		"credit": "Spitzer Legacy Program/GALEX Nearby Galaxy Survey/R. Jay GaBany",
+		"file": "images/banner.jpg"
+	},{
+		"credit": "NASA/CXC/Univ.Potsdam/L.Oskinova et al/STScI/JPL-Caltech",
+		"file": "images/banner3.jpg"
+	},{
+		"credit": "ESA/Herschel/HOBYS/XMM-Newton",
+		"file": "images/banner4.jpg"
+	},{
+		"credit": "ESA/Herschel/SPIRE/PACS/HELGA/XMM/EPIC/OM",
+		"file": "images/banner5.jpg"
+	}],
+	"wavelengths": [{
+		"title": "Visible",
+		"dir": "visible"
+	},{
+		"title": "Radio",
+		"dir": "radio"
+	},{
+		"title": "Far Infra-red",
+		"dir": "fir"
+	},{
+		"title": "Mid Infra-red",
+		"dir": "mir"
+	},{
+		"title": "Near Infra-red",
+		"dir": "nir"
+	},{
+		"title": "Ultraviolet",
+		"dir": "uv"
+	},{
+		"title": "X-ray",
+		"dir": "xray"
+	}],
+	"objects":[{
+		"name" : "Centaurus A",
+		"images" : {
+			"visible" : {
+				"file": "cena_vis_square.png",
+				"credit": "NOAO"
+			},
+			"fir" : {
+				"file": "cenA_fir_herschel.jpg",
+				"credit" : "Herschel"
+			},
+			"radio" : {
+				"file": "cenA_radio_vla.gif",
+				"credit": "VLA"
+			},
+			"mir" : {
+				"file": "cena_mir-square_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"uv" : {
+				"file": "cena_uv_galex.jpg",
+				"credit" : "GALEX"
+			},
+			"xray" : {
+				"file": "cena_xray_chandra.jpg",
+				"credit": "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "201.375",
+			"dec" : "-43.017"
+		},
+		"info" : "This object is Centaurus A, a large elliptical galaxy 11 million light years from Earth. Lying in the constellation of Centaurus the Centaur, the galaxy is particularly notable because of the dark lanes of dust stretching across the enormous ball of stars. When viewed in mid-infrared light, this dust is seen to be glowing, while the stars become invisible.  At longer far-infrared wavelengths, the dust is still seen, but there are two peculiar jets emanating from the centre of the galaxy.  These are the same jets as seen in the radio and x-ray images, and are composed of very energetic particles which have been ejected from the galaxy by the massive black hole in its centre.  They stretch for 13,000 light years into intergalactic space, and will have a strong impact on the behaviour of the galaxy, such as the rate at which it is forming stars.  Similar jets are seen in many other galaxies, and imply that the black hole is actively accreting material from its immediate surroundings. Centaurus A is the closest example of an &quot;active galaxy&quot;."
+	},{
+		"name" : "The Crab Nebula",
+		"images" : {
+			"visible" : {
+				"file" : "crab_vis_vlt.jpg",
+				"credit" : "VLT"
+			},
+			"radio" : {
+				"file" : "crab_radio_NRAO.gif",
+				"credit" : "NRAO"
+			},
+			"fir" : {
+				"file" : "crab_fir_Herschel-PACS.jpg",
+				"credit" : "Herschel-PACS"
+			},
+			"mir" : {
+				"file" : "crab_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"uv" : {
+				"file" : "crab_uv_UIT.jpg",
+				"credit" : "UIT"
+			},
+			"xray" : {
+				"file" : "crab_xray-square_chandra.jpg",
+				"credit" : "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "83.625",
+			"dec" : "22.017"
+		},
+		"info": "This is the Crab Nebula, so called because the Earl of Rosse thought it looked like a crab.  We now know that it is a &quot;supernova remnant&quot;, which is all that remains of a massive star which exploded.  In the case of the Crab Nebula, we know that the star exploded in 1054 AD, and was observed by Chinese and Arabic astronomers.  Such a violent explosion, would have briefly changed the face of the constellation of Taurus, but at a distance of around 6,500 light years would have had no effect on the Earth itself.  The material which made up the star was thrown out into the surrounding space, and the visible light image shows the resulting cloud of gas, laced through with small amounts of dust.  The gas is glowing at visible, ultraviolet, far-infrared and radio wavelengths.  The x-ray image shows a swirling disc of material, at the centre of which lies the only solid remains of the star.  This very dense &quot;neutron star&quot; is around the same mass as the Sun, but is only around 20km across.  It spins on its axis 30 times a second, and as it does so it sends beams of radio waves and x-rays out of its poles.  Thes beams happen to pass over the Earth once every revolution, much like a lighthouse beam, causing what astronomers call a &quot;pulsar&quot;.<br /><br />The Crab Nebula is just visible in binoculars from a dark site, and a small telescope will bring out its diffuse nature, though larger telescopes and long exposure photographs are neaded to produce the vivid colours seen here."
+	},{
+		"name" : "Antennae",
+		"images" : {
+			"visible" : {
+				"file" : "antennae_vis_hst.jpg",
+				"credit" : "Hubble"
+			},
+			"radio" : {
+				"file" : "antennae_radio_vla.jpg",
+				"credit" : "VLA"
+			},
+			"fir" : {
+				"file" : "antennae_fir_Herschel-PACS_small.jpg",
+				"credit" : "Herschel-PACS"
+			},
+			"mir" : {
+				"file" : "antennae_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"xray" : {
+				"file" : "antennae_xray_chandra.jpg",
+				"credit" : "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "180.47",
+			"dec" : "-18.169"
+		},
+		"info":"This bizarre looking galaxy is actually two galaxies, which individually go by the catalogue names of NGC 4038 and NGC 4039.  The galaxies are in the process of merging, and the two bright central bulges can be seen in the upper right and lower left of the visible light image.  The two galaxies have been severely disrupted by each other, and their gravitational pull has stripped stars out to form huge &quot;tidal tails&quot; of stars and dust.  These are more apparent in wider views, and are what lead to them being called the &quot;antennae&quot;.  Discovered by William Herschel in 1785, they lie around 50 million lightyears away in the constellation of Corvus the Crow.  The collision of massive clouds of gas and dust has lead to a bout of star formation, which causes the gas and dust to be warmed and therefore glow at mid-infrared, far-infrared and radio wavelengths. The x-ray image shows very energetic material, with the bright spots being particular types binary star systems.  When one star in a binary system has died and become either a white dwarf, a neutron star, or even a black hole, it can pull material off its companion star.  This heats the material to immense temperatures and causes it to emit x-rays, forming what are called &quot;x-ray binary stars&quot;.<br /><br />A small telescope will show the antennae galaxies, and a long-exposure photograph through a medium-sized telescope should show their distinctive shape."
+	},{
+		"name" : "Cassiopeia A",
+		"images" : {
+			"visible" : {
+				"file" : "casa_vis_hst.jpg",
+				"credit" : "Hubble"
+			},
+			"radio" : {
+				"file" : "casA_radio_NRAO.gif",
+				"credit" : "VLA"
+			},
+			"fir" : {
+				"file" : "casA_fir_Herschel-PACS.jpg",
+				"credit" : "Herschel-PACS"
+			},
+			"mir" : {
+				"file" : "casA_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"xray" : {
+				"file" : "casa_xray_chandra.jpg",
+				"credit" : "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "350.858",
+			"dec" : "0.98"
+		},
+		"info" : "Cassiopeia A is a supernova"
+	},{
+		"name" : "Large Magellanic Cloud",
+		"images" : {
+			"visible" : {
+				"file": "lmc_vis_square.png",
+				"credit": ""
+			},
+			"fir" : {
+				"file": "lmc_fir_iras.jpg",
+				"credit": "IRAS"
+			},
+			"radio" : {
+				"file": "lmc_radio_rauib.gif",
+				"credit": "RAUIB"
+			},
+			"uv" : {
+				"file": "lmc_uv_rocket.jpg",
+				"credit": "Rocket"
+			},
+			"xray" : {
+				"file": "lmc_xray_rosat.gif",
+				"credit": "ROSAT"
+			}
+		},
+		"coord" : {
+			"ra" : "79.75",
+			"dec" : "-69"
+		},
+		"info" : "This object is the Large Magellanic Cloud"
+	},{
+		"name" : "Andromeda",
+		"images" : {
+			"visible" : {
+				"file" : "m31_vis_gendler_rot.jpg",
+				"credit" : "Rob Gendler"
+			},
+			"radio" : {
+				"file" : "m31_radio_effelsberg.jpg",
+				"credit" : "Effelsberg"
+			},
+			"fir" : {
+				"file" : "m31_fir_herschel.jpg",
+				"credit" : "Herschel"
+			},
+			"mir" : {
+				"file" : "m31_mir_spitzer_rot.jpg",
+				"credit" : "Spitzer"
+			},
+			"uv" : {
+				"file" : "m31_uv_galex.jpg",
+				"credit" : "GALEX"
+			},
+			"xray" : {
+				"file" : "m31_xray_xmm.jpg",
+				"credit" : "XMM-Newton"
+			}
+		},
+		"coord" : {
+			"ra" : "10.657",
+			"dec" : "41.267"
+		},
+		"info" : "This object is the Andromeda Galaxy."
+	},{
+		"name" : "Triangulum",
+		"images" : {
+			"visible" : {
+				"file": "m33_vis_gendler.jpg",
+				"credit" : "Rob Gendler"
+			},
+			"radio" : {
+				"file": "m33_radio_nrao.jpg",
+				"credit" : "NRAO"
+			},
+			"mir" : {
+				"file": "m33_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"uv" : {
+				"file": "m33_uv_UIT.jpg",
+				"credit" : "UIT"
+			},
+			"xray" : {
+				"file": "m33_xray_rosat.jpg",
+				"credit": "ROSAT"
+			}
+		},
+		"coord" : {
+			"ra" : "23.475",
+			"dec" : "30.65"
+		},
+		"info" : "This object is the Triangulum Galaxy."
+	},{
+		"name" : "Orion",
+		"images" : {
+			"visible" : {
+				"file": "m42_vis_hst.jpg",
+				"credit" : "Hubble"
+			},
+			"fir" : {
+				"file": "m42_microwave_planck.jpg",
+				"credit" : "Planck"
+			},
+			"nir" : {
+				"file": "m42_nir_vista.jpg",
+				"credit" : "VISTA"
+			},
+			"mir" : {
+				"file": "m42_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"xray" : {
+				"file": "m42_xray_XMM.jpg",
+				"credit": "XMM-Newton"
+			}
+		},
+		"coord" : {
+			"ra" : "83.85",
+			"dec" : "-5.45"
+		},
+		"info" : "This object is the Orion Nebula"
+	},{
+		"name" : "Messier 81",
+		"images" : {
+			"visible" : {
+				"file": "m81_vis_gendler.jpg",
+				"credit" : "Rob Gendler"
+			},
+			"fir" : {
+				"file": "m81_fir_herschel.png",
+				"credit" : "Herschel"
+			},
+			"radio" : {
+				"file" : "m81_radio_vla.jpg",
+				"credit": "VLA"
+			},
+			"uv" : {
+				"file": "m81_uv_UIT.jpg",
+				"credit" : "UIT"
+			},
+			"xray" : {
+				"file": "m81_xray_chandra.jpg",
+				"credit": "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "148.9",
+			"dec" : "69.067"
+		},
+		"info" : "This object is the galaxy Messier 81"
+	},{
+		"name" : "Messier 82",
+		"images" : {
+			"visible" : {
+				"file": "M82_vis_gendler.jpg",
+				"credit": "Rob Gendler"
+			},
+			"fir" : {
+				"file": "m82_fir_herschel.png",
+				"credit" : "Herschel"
+			},
+			"radio" : {
+				"file": "M82_radio_vla-merlin.jpg",
+				"credit": "VLA-MERLIN"
+			},
+			"mir" : {
+				"file": "m82_mir_spitzer_rot.jpg",
+				"credit" : "Spitzer"
+			},
+			"uv" : {
+				"file": "m82_uv_UIT.jpg",
+				"credit" : "UIT"
+			},
+			"xray" : {
+				"file": "m82_xray_chandra.jpg",
+				"credit": "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "148.95",
+			"dec" : "69.683"
+		},
+		"info" : "This object is the galaxy Messier 82"
+	},{
+		"name" : "Messier 87",
+		"images" : {
+			"visible" : {
+				"file" : "M87_vis_gendler.jpg",
+				"credit" : "Rob Gendler"
+			},
+			"radio" : {
+				"file" : "m87_radio_nrao.jpg",
+				"credit" : "NRAO"
+			},
+			"fir" : {
+				"file" : "m87_fir_herschel.png",
+				"credit" : "Herschel"
+			},
+			"mir" : {
+				"file" : "m87_mir_iras.jpg",
+				"credit" : "IRAS"
+			},
+			"xray" : {
+				"file" : "m87_xray_chandra.jpg",
+				"credit" : "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "187.7",
+			"dec" : "12.4"
+		},
+		"info" : "This object is the galaxy Messier 87"
+	},{
+		"name" : "Messier 104",
+		"images" : {
+			"visible" : {
+				"file": "m104_vis_hst.png",
+				"credit": "Hubble"
+			},
+			"nir" : {
+				"file": "m104_nir_2mass.jpg",
+				"credit" : "2MASS"
+			},
+			"radio" : {
+				"file": "m104_radio_vla_magfield.gif",
+				"credit": "VLA"
+			},
+			"mir" : {
+				"file": "m104_mir_spitzer.jpg",
+				"credit" : "Spitzer"
+			},
+			"xray" : {
+				"file": "m104_xray_chandra.jpg",
+				"credit": "Chandra"
+			}
+		},
+		"coord" : {
+			"ra" : "190",
+			"dec" : "11.617"
+		},
+		"info" : "Messier 104 is more commonly known as the Sombrero Galaxy, as the thick layer of dust makes it look like the mexican hat when seen in visible light."
+	}]
+}
