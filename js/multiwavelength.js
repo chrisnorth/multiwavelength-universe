@@ -172,11 +172,11 @@
 			$('#objects h2').trigger('click');
 		});
 
-		$('#tools button.btn-primary').html(d.check.button).on('click',{me:this},function(e){
+		$('#tools .btn-check').html(d.check.button).on('click',{me:this},function(e){
 			e.preventDefault();
 			if(!$(this).attr('disabled')) e.data.me.check();
 		});
-		$('#tools a.btn').html(d.info.button).on('click',{me:this},function(e){
+		$('#tools .btn-info').html(d.info.button).on('click',{me:this},function(e){
 			if(!$(this).attr('disabled')) e.data.me.toggleInfo();
 		});
 
@@ -209,7 +209,7 @@
 			if($('#help').is(':visible')) $('#menu a.helpbtn').trigger('click');
 
 			var html = "";
-			var im, w, key;
+			var im, w, key, extra, src;
 
 			this.id = i;
 
@@ -221,7 +221,13 @@
 				key = this.data.wavelengths[w].dir;
 				im = this.data.objects[i].images[key]
 				if(key!="visible" && im){
-					html += '<div class="'+key+' wavelength" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><img src="'+this.image+'" \/><\/div>';
+					extra = "";
+					src = this.image;
+					if(this.score && this.score[this.id] && this.score[this.id].answers && this.score[this.id].answers[key]){
+						extra = " "+(this.score[this.id].answers[key].result ? "correct" : "wrong");
+						src = (typeof this.score[this.id].answers[key].src==="string") ? this.score[this.id].answers[key].src : "";
+					}
+					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><img src="'+src+'" \/><\/div>';
 				}
 			}
 			$('.wavelengths').html(html);
@@ -231,7 +237,7 @@
 			});
 	
 			w = this.getWavelength('visible');
-			var src = 'images/'+w.dir+'/'+this.data.objects[i].images['visible'].file;
+			src = 'images/'+w.dir+'/'+this.data.objects[i].images['visible'].file;
 			$('.comparison .leftcol li.image img').attr({'src':src,'alt':this.data.objects[i].name});
 
 
@@ -338,7 +344,7 @@
 	Activity.prototype.toggleInfo = function(){
 	
 		// Update the info area
-		$('#info').slideToggle();
+		$('#info').toggle();
 
 		return this;
 	}
@@ -349,14 +355,22 @@
 		var ws = $('.wavelengths .wavelength');
 		var n = 0;
 		var key = "";
+
+		if(!this.score) this.score = new Array(this.data.objects.length);
+		if(typeof this.score[this.id]!=="object") this.score[this.id] = {};
+		if(!this.score[this.id].answers) this.score[this.id].answers = {};
+
 		for(var i = 0; i < ws.length ; i++){
 			key = $(ws[i]).attr('data');
 			if($(ws[i]).find('img').attr('src')=='images/'+key+'/'+this.data.objects[this.id].images[key].file){
 				n++;
 				$(ws[i]).addClass('correct');
+				this.score[this.id].answers[key] = { 'result': true };
 			}else{
 				$(ws[i]).addClass('wrong');
+				this.score[this.id].answers[key] = { 'result' : false };
 			}
+			this.score[this.id].answers[key].src = $(ws[i]).find('img').attr('src');
 		}
 
 		// Make the 'more info' button active
@@ -370,27 +384,29 @@
 	Activity.prototype.setScore = function(n,t){
 
 		if(!this.score) this.score = new Array(this.data.objects.length);
-		this.score[this.id] = n/t;
-		$('#result').html(this.data.check.result.replace('%SCORE%', n+'/'+t));
+		if(typeof this.score[this.id]!=="object") this.score[this.id] = {};
+		this.score[this.id].n = n;
+		this.score[this.id].t = t;
+
+		$('#result').html(this.data.check.result.replace('%PERCENT%', Math.round(100*n/t)+"%").replace('%CORRECT%',n).replace('%TOTAL%',t));
 		$('#objects ul li').eq(this.id).find('.score').html(Math.round(100*n/t)+"%");
 
+		var n = 0;
 		var t = 0;
-		var c = 0;
 		for(var i = 0; i < this.score.length; i++){
-			if(typeof this.score[i]==="number"){
-				t += this.score[i];
-				c++;
+			if(typeof this.score[i]==="object" && typeof this.score[i].t==="number" && typeof this.score[i].n==="number"){
+				t += this.score[i].t;
+				n += this.score[i].n;
 			}
 		}
-		if(c > 0) t /= c;
-		this.updateTotal(t);
+		if(t > 0) this.updateTotal(n,t);
 
 		return this;
 	}
 
-	Activity.prototype.updateTotal = function(t){
-		$('#average .label').html(this.data.check.average);
-		$('#score').html(Math.round(100*t)+"%");
+	Activity.prototype.updateTotal = function(n,t){
+		var r = (t > 0) ? Math.round(100*n/t) : 0;
+		if(typeof n==="number" && typeof t==="number") $('#average .label').html(this.data.check.average.replace('%PERCENT%',r+"%").replace('%CORRECT%',n).replace('%TOTAL%',t)).data('score',Math.round(100*t));
 		return this;
 	}
 

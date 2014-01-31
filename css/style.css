@@ -376,5 +376,4 @@ img { border: 1px solid #808080; display: inline-block; }
 	#selector img { height: 240px; }
 	#info .illustration { float: none; max-width: 100%; margin-right: 0em; }
 	.btn { margin-bottom: 0.5em; }
-	#selector .rightcol .list ul { overflow: scroll; }
 }

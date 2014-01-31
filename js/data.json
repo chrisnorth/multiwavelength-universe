@@ -15,8 +15,8 @@
 	},
 	"check" : {
 		"button" : "Check your answers",
-		"result" : "You got %SCORE% correct",
-		"average" : "Average score:"
+		"result" : "You got <strong>%CORRECT%/%TOTAL%</strong> correct.",
+		"average" : "Overall score: <strong>%PERCENT% (%CORRECT%/%TOTAL%)</strong>"
 	},
 	"info" : {
 		"title" : "Information",
