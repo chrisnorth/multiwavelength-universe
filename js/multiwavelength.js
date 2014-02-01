@@ -397,7 +397,7 @@
 			var html = "";
 			var li = [];
 			for(i = 0; i < this.data.objects.length; i++){
-				if(typeof this.data.objects[i].images[w]==="object"){
+				if(typeof this.data.objects[i].images[w]==="object" && this.data.objects[i].images[w].src!=""){
 					li.push('<li class="image"><img src="images/'+w+'/'+this.data.objects[i].images[w].file+'" title="'+this.data.objects[i].images[w].credit+'" \/><\/li>');
 					this.key = w;
 
