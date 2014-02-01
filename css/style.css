@@ -26,16 +26,21 @@ img { border: 1px solid #808080; display: inline-block; }
 #titlebar h1, #titlebar .title { display: inline-block; }
 #titlebar a { color: inherit; text-decoration: none; }
 #titlebar #menu { float: right; display: inline-block; height: 1.2em; line-height: 1.2em; }
+.rtl #titlebar #menu { float: left; }
 #titlebar .fullscreenbtn { float: right; margin-top: -0.35em; margin-left: 0.5em; border: 0px; cursor: pointer; }
+.rtl #titlebar .fullscreenbtn { float: left; margin-right: 0.5em; margin-left: 0; }
 #info, #help { background-color: white; }
 #help { padding: 0px; }
 #help #banner { position: relative; width: 100%; height: 8em; background-image: url('../images/banner.jpg'); background-size: cover; background-position: center center; }
 #help h1 { font-size: 2em; color: white; bottom: -0.3em; left: 1em; position: absolute; }
+.rtl #help h1 { right: 1em; left: 0px; }
 #help .attribution { font-size: 0.5em; color: white; bottom: -1.25em; right: 4em; position: absolute; }
+.rtl #help .attribution { left: 4em; text-align: left; }
 #help h2 { font-size: 1.5em; }
 #info, .helpinner, #main, #footer { padding: 2em; }
 #info { display: none; }
 #info .illustration { float: left; width: 352px; margin-right: 1em; }
+.rtl #info .illustration { float: right; margin-left: 1em; margin-right: 0px; }
 #info .illustration img { width: 100%; height: auto; }
 #info .extrainfo { margin-top: 1em; }
 .clear { clear: both; }
@@ -43,6 +48,7 @@ img { border: 1px solid #808080; display: inline-block; }
 #objects.section { padding: 0px; }
 #objects { background-color:white; }
 #objects .opener { float: right; cursor: pointer; width: 0; height: 0; margin: 1em 1em 0 0; border-bottom: 0.5em solid #202020; border-top: 0; border-left: 0.5em solid transparent; border-right: 0.5em solid transparent; }
+.rtl #objects .opener { float: left; margin: 1em 0 0 1em; }
 #objects.closed .opener { border-top: 0.5em solid #202020; border-bottom: 0; border-left: 0.5em solid transparent; border-right: 0.5em solid transparent; }
 #objects h2 {
 	cursor: pointer;
@@ -60,19 +66,17 @@ img { border: 1px solid #808080; display: inline-block; }
 	padding: 0px;
 	border-top: 1px solid #606060;
 }
-#objects h2, #objects ul li .object {
-	padding: 0.5em 1em;
-}
-#objects ul li .object {
-	border-right: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
-}
+#objects h2, #objects ul li .object { padding: 0.5em 1em; }
+#objects ul li .object { border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+.rtl #objects ul li .object { border-left: 1px solid #ccc; border-right: 0px; }
 #objects ul li { display: inline-block; width: 25%; line-height: 2em; cursor: pointer; }
 #objects ul li.selected { background-color: #fee57f; }
 #objects ul li:hover { background-color: #e6e6e6; }
 #objects .thumb { display: inline-block; float: left; margin-right: 0.5em; height: 2em;}
+.rtl #objects .thumb { float: right; margin-left: 0.5em; margin-right: 0; }
 #objects .thumb img { width: 2em; height: 2em; border: 0px; }
 #objects .score { float: right; display: inline-block; font-weight: bold; }
+.rtl #objects .score { float: left; }
 
 
 .row { display: table-row; }
@@ -150,10 +154,8 @@ img { border: 1px solid #808080; display: inline-block; }
 	padding: 0 0 0.5em 0;
 }
 #selector .leftcol { border-right: 2em solid white; }
-#selector .rightcol .list li {
-	margin-right: 1em;
-	display:inline;
-}
+.rtl #selector .leftcol { border-left: 2em solid white; border-right: 0px; }
+#selector .rightcol .list li { margin-right: 1em; display:inline; }
 .selected .label { font-weight: bold; }
 .selected:after { content:""; position: absolute; width: 0; height: 0; left: 50%; top: 0em; margin: 0 0 0 -1em; border-top: 1em solid #202020; border-left: 1em solid transparent; border-right: 1em solid transparent; }
 .helpbtn { position: relative; }
@@ -239,6 +241,7 @@ img { border: 1px solid #808080; display: inline-block; }
 #footer { background-color: #E6E6E6; }
 #tools { display: inline-block; }
 #average { float: right; display: inline-block;line-height: 2em; }
+.rtl #average { float: left; }
 #average #score { display: inline-block; font-weight: bold; }
 .btn{
 	text-decoration: none;

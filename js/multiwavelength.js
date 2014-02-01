@@ -79,9 +79,36 @@
 	window.fullScreenApi = fullScreenApi;
 	// End of Full Screen API
 
+	// Get the URL query string and parse it
+	jQuery.query = function() {
+			var r = {length:0};
+			var q = location.search;
+		if(q && q != '#'){
+			// remove the leading ? and trailing &
+			q = q.replace(/^\?/,'').replace(/\&$/,'');
+			jQuery.each(q.split('&'), function(){
+				var key = this.split('=')[0];
+				var val = this.split('=')[1];
+				if(/^[0-9.]+$/.test(val)) val = parseFloat(val);	// convert floats
+				r[key] = val;
+				r['length']++;
+			});
+		}
+		return r;
+	};
+
+
 	function Activity(inp){
 
-		this.dataurl = "js/data.json";
+		this.q = $.query();
+
+		// Language support
+		this.lang = (navigator) ? (navigator.userLanguage||navigator.systemLanguage||navigator.language||browser.language) : "";			// Set the user language
+		// Over-ride with query string set value
+		if(typeof this.q.lang=="string") this.lang = this.q.lang;
+		this.langshort = (this.lang.indexOf('-') > 0 ? this.lang.substring(0,this.lang.indexOf('-')) : this.lang.substring(0,2));
+
+		this.dataurl = "js/data_"+(this.langshort ? this.langshort : "en")+".json";
 		this.image = "images/image.png";
 		this.id = -1;
 		this.key = "";
@@ -100,14 +127,12 @@
 		var rc = $('.comparison .rightcol');
 		var padd = rc.outerWidth()-rc.width();
 		var w = 1;
-		if($('.comparison .leftcol').css('display')=="block"){
-			w = $(window).width() - padd - $('.comparison .leftcol').position().left*2;		
-		}else{
-			w = $(window).width() - $('.comparison .leftcol').outerWidth() - $('.comparison .leftcol').position().left*2 - padd;
-		}
-		$('.comparison .rightcol ul').css('max-width',w);
-		$('.comparison .rightcol ul li:last-child').css('margin-right',w-$('.comparison .rightcol ul li:last-child').width());
+		var o = (this.data.language.alignment=="left") ? $('.comparison .leftcol').position().left : $('body').outerWidth() - ($('.comparison .leftcol').position().left+$('.comparison .leftcol').outerWidth());
+		if($('.comparison .leftcol').css('display')=="block") w = $(window).width() - padd - o*2;		
+		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
+		$('.comparison .rightcol ul').css('max-width',w);
+		$('.comparison .rightcol ul li:last-child').css('margin-'+(this.data.language.alignment=="left" ? "right" : "left"),w-$('.comparison .rightcol ul li:last-child').width());
 		return this;
 	}
 
@@ -126,11 +151,15 @@
 		});
 		return this;
 	}
+
 	// Update the page using the JSON response
 	Activity.prototype.config = function(d){
 
 		// Store the data
 		this.data = d;
+
+		// Set language direction via attribute and a CSS class
+		$('#container').attr('dir',(d.language.alignment=="right" ? 'rtl' : 'ltr')).addClass((d.language.alignment=="right" ? 'rtl' : 'ltr'));
 
 		// Update title
 		$('#titlebar h1').replaceWith('<div class="title">'+d.title+'<\/div>');
@@ -150,7 +179,6 @@
 			$('.fullscreenbtn').on('click', {me:this}, function(e){
 				e.data.me.toggleFullScreen();
 			});
-
 		}
 
 		// Update the select object text
@@ -158,6 +186,7 @@
 		$('#objects h2, #objects .opener').on('click',{me:this},function(e){
 			e.data.me.toggleObjects();
 		})
+
 
 		// Update the objects
 		var html = "";
@@ -219,7 +248,7 @@
 			// Update the wavelength list
 			for(w = 0 ; w < this.data.wavelengths.length; w++){
 				key = this.data.wavelengths[w].dir;
-				im = this.data.objects[i].images[key]
+				im = this.data.objects[i].images[key];
 				if(key!="visible" && im){
 					extra = "";
 					src = this.image;
@@ -230,6 +259,16 @@
 					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><img src="'+src+'" \/><\/div>';
 				}
 			}
+
+			$('#selector .row.comparison .leftcol ul').html('<li class="image"><img src="" /></li>');
+
+			// Add the second row of the selector
+
+			// Left column
+			$('#selector .row.answers .leftcol').html('<div class="'+this.data.wavelengths[0].dir+' wavelength selected"><span class="label">'+this.data.wavelengths[0].title+'</span></div>');
+
+			// Right column
+			if($('.wavelengths').length == 0) $('.answers .rightcol').html('<div class="wavelengths"></div>');
 			$('.wavelengths').html(html);
 			$('.wavelengths .wavelength').off('click').on('click',{me:this},function(e){
 				e.preventDefault();
