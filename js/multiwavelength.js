@@ -281,6 +281,12 @@
 	
 		$('#tools .btn-info').html(this.data.info.button);
 
+
+		for(w = 0 ; w < this.data.wavelengths.length; w++){
+			key = this.data.wavelengths[w].dir;
+			$('.wavelength.'+key+' .label').html(this.data.wavelengths[w].title);
+		}
+
 		this.resize();
 		
 		return this;
