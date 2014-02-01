@@ -6,7 +6,7 @@
   "alignment": "right"
  },
  "help": {
-  "label": "Help",
+  "label": "&#1506;&#1494;&#1512;&#1492;",
   "title": "About this activity",
   "html": "<p>The aim of this activity is to match images of astronomical objects, observed in different wavelengths, with the object's visible image (a composite image made up of a red, green and blue images).</p>\n<p>Where to start...</p>\n<ol>\n<li>Select an astronomical object from the \"Select Object\" list. This object's visible image will then be displayed.</li>\n<li>Select a wavelength - radio, far-infrared, mid-infrared, UV or X-ray - to see a random list of images of objects taken in that wavelength. Look through the suggestions and select the one you think is a match and it will be added to your answer grid. Think about the object such as its shape and size in the different wavelengths. What could that visible object, now in a different wavelength, reveal?</li>\n<li>Once you have selected an image from each of the available wavelengths press the <button class=\"btn btn-primary btn-inline\">Check your answers</button> button to see if your selections are correct. More Information about the object, such as its history and what the different wavelength images reveal about the object, will then become available.</li>\n</ol>"
  },
