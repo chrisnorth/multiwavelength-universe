@@ -252,7 +252,7 @@
 		$('#container').attr('dir',(this.data.language.alignment=="right" ? 'rtl' : 'ltr')).removeClass('ltr rtl').addClass((this.data.language.alignment=="right" ? 'rtl' : 'ltr'));
 
 		// Update title
-		$('#titlebar h1 .title').html(this.data.title);
+		$('#titlebar .title').html(this.data.title);
 		
 		// Update the help text
 		$('#menu .helpbtn').html(this.data.help.label);
