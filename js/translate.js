@@ -134,8 +134,7 @@
 
 		for(key in m){
 			n = parseInt(key);
-		
-			newk = (n >= 0)	? k+"["+key+"]" : k+"."+key;
+			newk = k+"."+key;
 
 			if(typeof m[key]==="object"){
 
@@ -215,8 +214,8 @@
 		return html;
 	}
 	Translator.prototype.getOutput = function(){
-		var json = sanitize(converter($("form#language").formToJSON()));
-		json = json.substring(0,json.length-4).substring(17).replace(/\n\t\t/g,'\n\t')+'}';
+		var json = sanitize($("form#language").formToJSON(this));
+		//json = json.substring(0,json.length-4).substring(17).replace(/\n\t\t/g,'\n\t')+'}';
 		var output = "<pre>"+json+"</pre>";
 
 		if($('#output').length == 0) $('#translation').after('<div id="output"></div>')
@@ -225,47 +224,37 @@
 	}
 
 	/* From http://exceptionallyexceptionalexceptions.blogspot.co.uk/2011/12/convert-html-form-to-json.html */
-	$.fn.formToJSON = function() {
-		var objectGraph = {};
+	$.fn.formToJSON = function(t) {
 
-		function add(objectGraph, name, value) {
-			if(name.length == 1) {
-				//if the array is now one element long, we're done
-				objectGraph[name[0]] = value;
-			}else{
-				//else we've still got more than a single element of depth
-
-				var newname = (name[0].indexOf('[') > 0) ? name[0].substring(0,name[0].indexOf('[')) : name[0];
-				if(newname != name[0]){
-					var id = parseInt(name[0].substr(name[0].indexOf('[')+1,name.length-1));
-				}
-
-				if(typeof objectGraph[newname]==="undefined") {
-					//create the node if it doesn't yet exist
-					objectGraph[newname] = (newname==name[0]) ? {} : [{}];
-				}
-
-				//recurse, chopping off the first array element
-				if(newname != name[0]){
-					// If this index doesn't exist we create a dummy
-					if(objectGraph[newname] && objectGraph[newname].length <= id) objectGraph[newname].push({})
-					add(objectGraph[newname][id], name.slice(1), value);
-				}else{
-					add(objectGraph[newname], name.slice(1), value);
+		function setValue(object, path, value) {
+			var a = path.split('.');
+			var o = object;
+			for (var i = 0; i < a.length - 1; i++) {
+				var n = a[i];
+				if (n in o) {
+					o = o[n];
+				} else {
+					o[n] = {};
+					o = o[n];
 				}
 			}
-		};
+			o[a[a.length - 1]] = value;
+		}
 
-		//loop through all of the input/textarea elements of the form
-		this.find('input, textarea, select').each(function() {
-		//$(this).children('input, textarea').each(function() {
-			//ignore the submit button
-			if($(this).attr('name') != 'submit') {
-				//split the dot notated names into arrays and pass along with the value
-				add(objectGraph, $(this).attr('name').split('.'), $(this).val());
-			}
-		});
-		return JSON.stringify(objectGraph,null, " ");
+		if(t.phrasebook){
+
+			// First of all we need to get a copy of the original JSON structure
+			// otherwise we loose arrays
+			var objectG = JSON.parse(JSON.stringify(t.phrasebook));
+
+			//loop through all of the input/textarea elements of the form
+			var el = this.find('input, textarea, select').each(function(i){
+				//ignore the submit button
+				if($(this).attr('name') != 'submit') setValue(objectG,$(this).attr('name').substr(1),converter($(this).val()))
+			})
+		}
+
+		return JSON.stringify(objectG,null, " ");
 	};
 		 
 

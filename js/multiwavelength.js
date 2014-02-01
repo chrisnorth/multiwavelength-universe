@@ -108,6 +108,8 @@
 		if(typeof this.q.lang=="string") this.lang = this.q.lang;
 		this.langshort = (this.lang.indexOf('-') > 0 ? this.lang.substring(0,this.lang.indexOf('-')) : this.lang.substring(0,2));
 
+		this.langs = (inp && inp.langs) ? inp.langs : { 'en': 'English' };
+
 		this.dataurl = "js/data_%LANG%.json";
 		this.image = "images/image.png";
 		this.id = -1;
@@ -119,7 +121,7 @@
 	Activity.prototype.init = function(){
 		var _obj = this;
 		$(window).resize({me:this},function(e){ _obj.resize(); });
-		this.load(this.lang);
+		this.load(this.lang,this.config);
 		return this;
 	}
 	
@@ -138,7 +140,7 @@
 
 	// Load the specified language
 	// If it fails and this was the long variation of the language (e.g. "en-gb" or "zh-yue"), try the short version (e.g. "en" or "zh")
-	Activity.prototype.load = function(l){
+	Activity.prototype.load = function(l,fn){
 		if(!l) l = this.langshort;
 		var url = this.dataurl.replace('%LANG%',l);
 		$.ajax({
@@ -147,39 +149,56 @@
 			dataType: 'json',
 			context: this,
 			error: function(){
-				console.log('error loading',l);
-				if(url.indexOf(this.lang) > 0) this.load(this.langshort);
+				console.log('Error loading '+l);
+				if(url.indexOf(this.lang) > 0){
+					console.log('Attempting to load '+this.langshort+' instead');
+					this.load(this.langshort,fn);
+				}
 			},
 			success: function(data){
-				this.config(data);
+				this.langshort = l;
+				this.lang = l;
+				// Store the data
+				this.data = data;
+				if(typeof fn==="function") fn.call(this);
 			}
 		});
 		return this;
 	}
 
 	// Update the page using the JSON response
-	Activity.prototype.config = function(d){
+	Activity.prototype.config = function(){
 
-		// Store the data
-		this.data = d;
-
-		// Set language direction via attribute and a CSS class
-		$('#container').attr('dir',(d.language.alignment=="right" ? 'rtl' : 'ltr')).addClass((d.language.alignment=="right" ? 'rtl' : 'ltr'));
+		d = this.data;
 
 		// Update title
 		$('#titlebar h1').replaceWith('<div class="title">'+d.title+'<\/div>');
 		
 		// Update the help text
-		$('#menu a.helpbtn').html(d.help.label).on('click',function(e){
+		$('#menu a.helpbtn').on('click',function(e){
 			e.preventDefault();
 			$(this).toggleClass('on');
 			$('#help').slideToggle();
+		}).addClass('item').before('<a href="#" class="langbtn item">'+this.langshort+'</a>');
+
+		// Build language selector
+		var html = "";
+		for(l in this.langs) html += '<li><a href="?lang='+l+'">'+this.langs[l]+'</a></li>';
+		$('#help').before('<div id="languageswitch"><ul>'+html+'</ul></div>');
+		$('#languageswitch ul li a').on('click',{me:this},function(e){
+			e.preventDefault();
+			var l = $(this).attr('href');
+			if(l.indexOf("lang=") >= 0) l = l.substr(l.indexOf("lang=")+5);
+			e.data.me.load(l,e.data.me.updateLanguage);
+			$('#languageswitch').hide();
 		});
+		$('.langbtn').on('click',function(){ $('#languageswitch').toggle(); });
+
 		// Pick a random banner
 		var b = d.banners[Math.round((d.banners.length-1)*Math.random())];
 		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+d.help.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner">'+d.help.html+'<\/div>');
 		if(fullScreenApi.supportsFullScreen){
-			$('#menu a').after('<img src="images/fullscreen.png" class="fullscreenbtn" />');
+			$('#menu .helpbtn').after('<img src="images/fullscreen.png" class="fullscreenbtn" />');
 			// Bind the fullscreen function to the double-click event if the browser supports fullscreen
 			$('.fullscreenbtn').on('click', {me:this}, function(e){
 				e.data.me.toggleFullScreen();
@@ -187,7 +206,7 @@
 		}
 
 		// Update the select object text
-		$('#objects h2').html(d.selectobject.title).before('<div class="opener"><\/div>');
+		$('#objects h2').before('<div class="opener"><\/div>');
 		$('#objects h2, #objects .opener').on('click',{me:this},function(e){
 			e.data.me.toggleObjects();
 		})
@@ -206,20 +225,63 @@
 			$('#objects h2').trigger('click');
 		});
 
-		$('#tools .btn-check').html(d.check.button).on('click',{me:this},function(e){
+		$('#tools .btn-check').on('click',{me:this},function(e){
 			e.preventDefault();
 			if(!$(this).attr('disabled')) e.data.me.check();
 		});
-		$('#tools .btn-info').html(d.info.button).on('click',{me:this},function(e){
+		$('#tools .btn-info').on('click',{me:this},function(e){
 			if(!$(this).attr('disabled')) e.data.me.toggleInfo();
 		});
 
 		this.updateTotal(0);
 
+		this.updateLanguage();
+
 		this.resize();
 
 		return this;
 	}
+	
+	Activity.prototype.updateLanguage = function(){
+
+		// Set language direction via attribute and a CSS class
+		$('#container').attr('dir',(this.data.language.alignment=="right" ? 'rtl' : 'ltr')).removeClass('ltr rtl').addClass((this.data.language.alignment=="right" ? 'rtl' : 'ltr'));
+
+		// Update title
+		$('#titlebar h1 .title').html(this.data.title);
+		
+		// Update the help text
+		$('#menu .helpbtn').html(this.data.help.label);
+		$('#menu .langbtn').html(this.langshort);
+		
+		// Fix language menu position
+		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*2.25)+'px','left':'auto'}))
+		
+		// Pick a random banner
+		var b = this.data.banners[Math.round((this.data.banners.length-1)*Math.random())];
+		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+this.data.help.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner">'+this.data.help.html+'<\/div>');
+
+		
+		// Update the objects
+		$('#objects h2').html(this.data.selectobject.title);
+		var html = "";
+		for(var o = 0 ; o < this.data.objects.length ; o++){
+			html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+this.data.objects[o].images.visible.file+'" /></div><span>'+this.data.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
+		}
+		$('#objects ul').html(html);
+		$('#objects ul li').off('click').on('click',{me:this},function(e){
+			e.data.me.changeObject($(this).attr('data'));
+			$('#objects ul li').removeClass('selected');
+			$(this).addClass('selected');
+			$('#objects h2').trigger('click');
+		});
+
+		$('#tools .btn-check').html(this.data.check.button);
+	
+		$('#tools .btn-info').html(this.data.info.button);
+		return this;
+	}
+	
 	Activity.prototype.toggleFullScreen = function(){
 		// Get the container
 		this.elem = document.getElementById("container");
@@ -472,13 +534,4 @@
 	$.multiwavelength.plugins = [];
 
 })(jQuery);
-
-var a;
-
-$(document).ready(function(){
-	
-	a = $.multiwavelength();
-	a.init();
-	
-});
 
