@@ -133,6 +133,10 @@
 		if($('.comparison .leftcol').css('display')=="block") w = $(window).width() - padd - o*2;		
 		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
+		// Fix language menu position
+		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*2.25)+'px','left':'auto'}))
+		
+
 		$('.comparison .rightcol ul').css('max-width',w);
 		$('.comparison .rightcol ul li:last-child').css('margin-'+(this.data.language.alignment=="left" ? "right" : "left"),w-$('.comparison .rightcol ul li:last-child').width());
 		return this;
@@ -254,9 +258,6 @@
 		$('#menu .helpbtn').html(this.data.help.label);
 		$('#menu .langbtn').html(this.langshort);
 		
-		// Fix language menu position
-		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*2.25)+'px','left':'auto'}))
-		
 		// Pick a random banner
 		var b = this.data.banners[Math.round((this.data.banners.length-1)*Math.random())];
 		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+this.data.help.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner">'+this.data.help.html+'<\/div>');
@@ -279,6 +280,9 @@
 		$('#tools .btn-check').html(this.data.check.button);
 	
 		$('#tools .btn-info').html(this.data.info.button);
+
+		this.resize();
+		
 		return this;
 	}
 	
@@ -400,8 +404,8 @@
 			if(li.length > 0){
 				
 				// Add titles to each side
-				if($('.comparison .leftcol h2').length==0) $('.comparison .leftcol').prepend('<h2>The visible light image<\/h2>')
-				if($('.comparison .rightcol h2').length==0) $('.comparison .rightcol').prepend('<h2>Select the image that you think is the view at this wavelength<\/h2>')
+				if($('.comparison .leftcol h2').length==0) $('.comparison .leftcol').prepend('<h2>'+this.data.instructions.visible+'<\/h2>');
+				if($('.comparison .rightcol h2').length==0) $('.comparison .rightcol').prepend('<h2>'+this.data.instructions.select+'<\/h2>');
 
 				// Update title
 				var wv = this.getWavelength(this.key);

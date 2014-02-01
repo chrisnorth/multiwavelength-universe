@@ -15,7 +15,8 @@
    "withobject": "Object: %OBJECT%"
   },
   "instructions": {
-   "select": "Choose the corresponding %WAVELENGTH% image"
+   "select": "Choose the corresponding %WAVELENGTH% image",
+   "visible": "The visible light image"
   },
   "check": {
    "button": "Check your answers",

@@ -35,7 +35,7 @@ img { border: 1px solid #808080; display: inline-block; }
 .rtl .helpbtn.on:after { left: 0; right: 50%; margin: 0 -0.75em 0 0; }
 
 /* Styles for the language selector */
-#languageswitch { display: none; position: absolute; z-index: 100; background-color: #f6f6f6; right: 5.75em; margin-top: 0.75em; box-shadow: 0px 0px 4px rgba(0,0,0,0.5); -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.5); -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.5); }
+#languageswitch { display: none; position: absolute; z-index: 100; background-color: #f6f6f6; right: 5.75em; margin-top: 0.75em; box-shadow: 0px 0px 1em rgba(0,0,0,0.5); -moz-box-shadow: 0px 0px 1em rgba(0,0,0,0.5); -webkit-box-shadow: 0px 0px 1em rgba(0,0,0,0.5); }
 .rtl #languageswitch { right: auto; left: 4.5em; }
 #languageswitch:after { content:""; position: absolute; width: 0; height: 0; right: 1em; top: -0.75em; margin: 0 0 0 -0.75em; border-bottom: 0.75em solid #f6f6f6; border-left: 0.75em solid transparent; border-right: 0.75em solid transparent; }
 .rtl #languageswitch:after { left: 1em; right: auto; margin: 0 -0.75em 0 0; }
