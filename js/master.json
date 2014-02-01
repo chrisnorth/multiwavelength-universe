@@ -19,7 +19,7 @@
 	},
 	"instructions" : {
 		"_title": "Instructions",
-		"visible": { "_title": "", "_text": "", "_type": "string" },
+		"visible": { "_title": "", "_text": "The label above the visible image", "_type": "string" },
 		"select" : { "_title": "", "_text": "The key <code>%WAVELENGTH%</code> will be replaced by the name of the wavelength.", "_type": "string" }
 	},
 	"check" : {
