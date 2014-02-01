@@ -134,7 +134,7 @@
 		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
 		// Fix language menu position
-		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*2.25)+'px','left':'auto'}))
+		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*2.25)+'px','left':'auto'}));
 		
 
 		$('.comparison .rightcol ul').css('max-width',w);
@@ -187,7 +187,7 @@
 
 		// Build language selector
 		var html = "";
-		for(l in this.langs) html += '<li><a href="?lang='+l+'">'+this.langs[l]+' ('+l+')</a></li>';
+		for(l in this.langs) html += '<li><a href="?lang='+l+'">'+this.langs[l]+' ['+l+']</a></li>';
 		$('#help').before('<div id="languageswitch"><ul dir="ltr">'+html+'</ul></div>');
 		$('#languageswitch ul li a').on('click',{me:this},function(e){
 			e.preventDefault();
@@ -256,7 +256,7 @@
 		
 		// Update the help text
 		$('#menu .helpbtn').html(this.data.help.label);
-		$('#menu .langbtn').html(this.langshort);
+		$('#menu .langbtn').html('['+this.langshort+']');
 		
 		// Pick a random banner
 		var b = this.data.banners[Math.round((this.data.banners.length-1)*Math.random())];
