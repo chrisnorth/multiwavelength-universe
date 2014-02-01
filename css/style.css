@@ -43,6 +43,7 @@ img { border: 1px solid #808080; display: inline-block; }
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
+	text-align: center;
 }
 #languageswitch li { display: block; }
 #languageswitch li a { display: block; color: inherit; padding: 0.5em 1em; text-decoration: none; }

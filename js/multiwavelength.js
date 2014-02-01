@@ -187,8 +187,8 @@
 
 		// Build language selector
 		var html = "";
-		for(l in this.langs) html += '<li><a href="?lang='+l+'">'+this.langs[l]+'</a></li>';
-		$('#help').before('<div id="languageswitch"><ul>'+html+'</ul></div>');
+		for(l in this.langs) html += '<li><a href="?lang='+l+'">'+this.langs[l]+' ('+l+')</a></li>';
+		$('#help').before('<div id="languageswitch"><ul dir="ltr">'+html+'</ul></div>');
 		$('#languageswitch ul li a').on('click',{me:this},function(e){
 			e.preventDefault();
 			var l = $(this).attr('href');
