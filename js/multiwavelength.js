@@ -108,7 +108,7 @@
 		if(typeof this.q.lang=="string") this.lang = this.q.lang;
 		this.langshort = (this.lang.indexOf('-') > 0 ? this.lang.substring(0,this.lang.indexOf('-')) : this.lang.substring(0,2));
 
-		this.dataurl = "js/data_"+(this.langshort ? this.langshort : "en")+".json";
+		this.dataurl = "js/data_%LANG%.json";
 		this.image = "images/image.png";
 		this.id = -1;
 		this.key = "";
@@ -119,7 +119,7 @@
 	Activity.prototype.init = function(){
 		var _obj = this;
 		$(window).resize({me:this},function(e){ _obj.resize(); });
-		this.load();
+		this.load(this.lang);
 		return this;
 	}
 	
@@ -136,14 +136,19 @@
 		return this;
 	}
 
-	Activity.prototype.load = function(){
+	// Load the specified language
+	// If it fails and this was the long variation of the language (e.g. "en-gb" or "zh-yue"), try the short version (e.g. "en" or "zh")
+	Activity.prototype.load = function(l){
+		if(!l) l = this.langshort;
+		var url = this.dataurl.replace('%LANG%',l);
 		$.ajax({
-			url: this.dataurl,
+			url: url,
 			method: 'GET',
 			dataType: 'json',
 			context: this,
 			error: function(){
-				console.log('error loading');
+				console.log('error loading',l);
+				if(url.indexOf(this.lang) > 0) this.load(this.langshort);
 			},
 			success: function(data){
 				this.config(data);
