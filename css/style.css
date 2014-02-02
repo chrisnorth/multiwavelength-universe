@@ -4,11 +4,11 @@ body {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 1em;
 	line-height: 1.4;
-	background-color: #e6e6e6;
 }
 h1, h2, h3 { font-size: 1em; margin: 0px; }
 img { border: 1px solid #808080; display: inline-block; }
 
+#container { min-height: 100%; background-color: #e6e6e6; }
 .fullscreen { overflow-y: auto; }
 .section { padding: 0.5em 1em; border-bottom: 1px solid #999999; max-width: 100%; }
 
@@ -37,7 +37,7 @@ img { border: 1px solid #808080; display: inline-block; }
 .rtl #titlebar .item { margin-left: 1em; margin-right: 0px; float: right; }
 #titlebar .fullscreenbtn { float: right; margin-top: -0.25em; border: 0px; cursor: pointer; }
 .rtl #titlebar .fullscreenbtn { float: left; }
-.helpbtn.on:after { content:""; position: absolute; width: 0; height: 0; left: 50%; top: 1.2em; margin: 0 0 0 -0.75em; border-bottom: 0.75em solid white; border-left: 0.75em solid transparent; border-right: 0.75em solid transparent; }
+.helpbtn.on:after { content:""; position: absolute; width: 0; height: 0; left: 50%; top: 1.25em; margin: 0 0 0 -0.75em; border-bottom: 0.75em solid white; border-left: 0.75em solid transparent; border-right: 0.75em solid transparent; }
 .rtl .helpbtn.on:after { left: 0; right: 50%; margin: 0 -0.75em 0 0; }
 
 /* Styles for the language selector */

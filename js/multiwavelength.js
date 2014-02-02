@@ -134,7 +134,9 @@
 		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
 		// Fix language menu position
-		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').outerWidth()*1.75)+'px','left':'auto'}));
+		console.log($('body').width(),$('#menu .langbtn').position().left,$('#menu .langbtn').width(),parseInt($('body').css('font-size')))
+		var fs = parseInt($('body').css('font-size'));
+		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left+fs*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').width()-fs)+'px','left':'auto'}));
 		
 
 		$('.comparison .rightcol ul').css('max-width',w);
