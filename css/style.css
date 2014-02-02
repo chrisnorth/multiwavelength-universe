@@ -180,6 +180,7 @@ img { border: 1px solid #808080; display: inline-block; }
 #selector .leftcol { border-right: 2em solid white; }
 .rtl #selector .leftcol { border-left: 2em solid white; border-right: 0px; }
 #selector .rightcol .list li { margin-right: 1em; display:inline; }
+.rtl #selector .rightcol .list li { margin-right: 0; margin-left: 1em; }
 .selected .label { font-weight: bold; }
 .selected:after { content:""; position: absolute; width: 0; height: 0; left: 50%; top: 0em; margin: 0 0 0 -1em; border-top: 1em solid #202020; border-left: 1em solid transparent; border-right: 1em solid transparent; }
 

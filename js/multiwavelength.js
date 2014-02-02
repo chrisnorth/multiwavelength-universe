@@ -138,8 +138,8 @@
 		
 
 		$('.comparison .rightcol ul').css('max-width',w);
-		var m = (this.data.language.alignment=="left" ? "0px" : (w-$('.comparison .rightcol ul li.image:last-child').width())+"px");
-		var m2 = (this.data.language.alignment=="left" ? (w-$('.comparison .rightcol ul li.image:last-child').width())+"px" : "0px");
+		var m = (this.data.language.alignment=="left" ? "" : (w-$('.comparison .rightcol ul li.image:last-child').width())+"px");
+		var m2 = (this.data.language.alignment=="left" ? (w-$('.comparison .rightcol ul li.image:last-child').width())+"px" : "");
 		$('.comparison .rightcol ul li.image:last-child').css({'margin-left':m,'margin-right': m2});
 		return this;
 	}
