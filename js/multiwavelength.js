@@ -217,17 +217,7 @@
 			e.data.me.toggleObjects();
 		})
 
-
-		// Update the objects
-		var html = "";
-		for(var o = 0 ; o < this.data.objects.length ; o++) html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+this.data.objects[o].images.visible.file+'" /></div><span class="objectname">'+this.data.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
-		$('#objects ul').html(html);
-		$('#objects ul li').on('click',{me:this},function(e){
-			e.data.me.changeObject($(this).attr('data'));
-			$('#objects ul li').removeClass('selected');
-			$(this).addClass('selected');
-			$('#objects h2').trigger('click');
-		});
+		this.updateThumbnails();
 
 		$('#tools .btn-check').on('click',{me:this},function(e){
 			e.preventDefault();
@@ -246,6 +236,24 @@
 		return this;
 	}
 	
+	Activity.prototype.updateThumbnails = function(){
+		// Update the objects
+		$('#objects ul li').off('click');
+		var html = "";
+		for(var o = 0 ; o < this.data.objects.length ; o++){
+			if(this.data.objects[o].images.visible.file && this.data.objects[o].images.visible.file!=""){
+				html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+this.data.objects[o].images.visible.file+'" /></div><span class="objectname">'+this.data.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
+			}
+		}
+		$('#objects ul').html(html);
+		$('#objects ul li').on('click',{me:this},function(e){
+			e.data.me.changeObject($(this).attr('data'));
+			$('#objects ul li').removeClass('selected');
+			$(this).addClass('selected');
+			$('#objects h2').trigger('click');
+		});
+	}
+
 	Activity.prototype.updateLanguage = function(){
 
 		// Set language direction via attribute and a CSS class
@@ -265,19 +273,8 @@
 		
 		// Update the objects
 		$('#objects h2').html(this.data.selectobject.title);
-		var li;
-		for(var o = 0 ; o < this.data.objects.length ; o++){
-			li = $('#objects li').eq(o);
-			li.find('thumb img').html(this.data.objects[o].images.visible.file);
-			li.find('objectname').html(this.data.objects[o].name);
-			if(this.score && this.score[o]) li.find('objectname').html(Math.round(100*this.score[o].n/this.score[o].t)+"%");
-		}
-		$('#objects ul li').off('click').on('click',{me:this},function(e){
-			e.data.me.changeObject($(this).attr('data'));
-			$('#objects ul li').removeClass('selected');
-			$(this).addClass('selected');
-			$('#objects h2').trigger('click');
-		});
+		this.updateThumbnails();
+
 
 		// Update wavelength info
 		this.setWavelength(this.key)
@@ -326,7 +323,7 @@
 			// Update the select object text
 			$('#objects h2').html(this.data.selectobject.withobject.replace('%OBJECT%',this.data.objects[i].name));
 
-			// Update the wavelength list
+			// Update the wavelength answer list
 			for(w = 0 ; w < this.data.wavelengths.length; w++){
 				key = this.data.wavelengths[w].dir;
 				im = this.data.objects[i].images[key];
@@ -401,7 +398,7 @@
 			var html = "";
 			var li = [];
 			for(i = 0; i < this.data.objects.length; i++){
-				if(typeof this.data.objects[i].images[w]==="object" && this.data.objects[i].images[w].src!=""){
+				if(typeof this.data.objects[i].images[w]==="object" && this.data.objects[i].images[w].file!=""){
 					li.push('<li class="image"><img src="images/'+w+'/'+this.data.objects[i].images[w].file+'" title="'+this.data.objects[i].images[w].credit+'" \/><\/li>');
 					this.key = w;
 
@@ -421,6 +418,8 @@
 				var wv = this.getWavelength(this.key);
 				$('.comparison .rightcol h2').html(this.data.instructions.select.replace('%WAVELENGTH%', wv.title).replace('%OBJECT%',this.data.objects[this.id].name));
 	
+				$('.comparison .rightcol ul li').off('click');
+
 				// Randomize the order of the images list items
 				while(li.length > 0){
 					i = Math.round((li.length-1)*Math.random());
@@ -429,7 +428,7 @@
 				}
 
 				$('.comparison .rightcol ul').html(html);
-				$('.comparison .rightcol ul li').off('click').on('click',{me:this},function(e){
+				$('.comparison .rightcol ul li').on('click',{me:this},function(e){
 					e.data.me.setImage($(this).find('img').attr('src'));
 				});
 				this.resize();
