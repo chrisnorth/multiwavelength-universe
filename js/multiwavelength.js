@@ -138,8 +138,9 @@
 		
 
 		$('.comparison .rightcol ul').css('max-width',w);
-		var m = 'margin-'+(this.data.language.alignment=="left" ? "right" : "left");
-		$('.comparison .rightcol ul li:last-child').css({'margin-left':'0px','margin-right':'0px',m: (w-$('.comparison .rightcol ul li:last-child').width())});
+		var m = (this.data.language.alignment=="left" ? "0px" : (w-$('.comparison .rightcol ul li.image:last-child').width())+"px");
+		var m2 = (this.data.language.alignment=="left" ? (w-$('.comparison .rightcol ul li.image:last-child').width())+"px" : "0px");
+		$('.comparison .rightcol ul li.image:last-child').css({'margin-left':m,'margin-right': m2});
 		return this;
 	}
 
@@ -434,6 +435,8 @@
 				this.resize();
 			}
 		}
+		
+		this.resize();
 
 		return this;
 	}
