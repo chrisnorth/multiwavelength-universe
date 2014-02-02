@@ -130,7 +130,7 @@
 		var padd = rc.outerWidth()-rc.width();
 		var w = 1;
 		var o = (this.data.language.alignment=="left") ? $('.comparison .leftcol').position().left : $('body').outerWidth() - ($('.comparison .leftcol').position().left+$('.comparison .leftcol').outerWidth());
-		if($('.comparison .leftcol').css('display')=="block") w = $(window).width() - padd - o*2;		
+		if($('.comparison .leftcol').css('display')=="block") w = $(window).width() - padd - o*2;
 		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
 		// Fix language menu position
@@ -138,7 +138,8 @@
 		
 
 		$('.comparison .rightcol ul').css('max-width',w);
-		$('.comparison .rightcol ul li:last-child').css('margin-'+(this.data.language.alignment=="left" ? "right" : "left"),w-$('.comparison .rightcol ul li:last-child').width());
+		var m = 'margin-'+(this.data.language.alignment=="left" ? "right" : "left");
+		$('.comparison .rightcol ul li:last-child').css({'margin-left':'0px','margin-right':'0px',m: (w-$('.comparison .rightcol ul li:last-child').width())});
 		return this;
 	}
 
@@ -277,10 +278,9 @@
 			$('#objects h2').trigger('click');
 		});
 
-		// Update title
-		var wv = this.getWavelength(this.key);
-		$('.comparison .leftcol h2').html(this.data.instructions.visible);
-		$('.comparison .rightcol h2').html(this.data.instructions.select.replace('%WAVELENGTH%', wv.title).replace('%OBJECT%',this.data.objects[this.id].name));
+		// Update wavelength info
+		this.setWavelength(this.key)
+
 		for(w = 0 ; w < this.data.wavelengths.length; w++){
 			key = this.data.wavelengths[w].dir;
 			$('.wavelength.'+key+' .label').html(this.data.wavelengths[w].title);
