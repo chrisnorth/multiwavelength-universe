@@ -277,15 +277,18 @@
 			$('#objects h2').trigger('click');
 		});
 
-		$('#tools .btn-check').html(this.data.check.button);
-	
-		$('#tools .btn-info').html(this.data.info.button);
-
-
+		// Update title
+		var wv = this.getWavelength(this.key);
+		$('.comparison .leftcol h2').html(this.data.instructions.visible);
+		$('.comparison .rightcol h2').html(this.data.instructions.select.replace('%WAVELENGTH%', wv.title).replace('%OBJECT%',this.data.objects[this.id].name));
 		for(w = 0 ; w < this.data.wavelengths.length; w++){
 			key = this.data.wavelengths[w].dir;
 			$('.wavelength.'+key+' .label').html(this.data.wavelengths[w].title);
 		}
+
+		$('#tools .btn-check').html(this.data.check.button);
+	
+		$('#tools .btn-info').html(this.data.info.button);
 
 		this.resize();
 		
