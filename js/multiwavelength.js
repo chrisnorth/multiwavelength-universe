@@ -218,9 +218,7 @@
 
 		// Update the objects
 		var html = "";
-		for(var o = 0 ; o < d.objects.length ; o++){
-			html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+d.objects[o].images.visible.file+'" /></div><span>'+d.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
-		}
+		for(var o = 0 ; o < this.data.objects.length ; o++) html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+this.data.objects[o].images.visible.file+'" /></div><span class="objectname">'+this.data.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
 		$('#objects ul').html(html);
 		$('#objects ul li').on('click',{me:this},function(e){
 			e.data.me.changeObject($(this).attr('data'));
@@ -265,11 +263,13 @@
 		
 		// Update the objects
 		$('#objects h2').html(this.data.selectobject.title);
-		var html = "";
+		var li;
 		for(var o = 0 ; o < this.data.objects.length ; o++){
-			html += '<li data="'+o+'"><div class="object"><div class="thumb"><img src="images/visible/'+this.data.objects[o].images.visible.file+'" /></div><span>'+this.data.objects[o].name+'<\/span> <div class="score" data="0"><\/div></div>';
+			li = $('#objects li').eq(o);
+			li.find('thumb img').html(this.data.objects[o].images.visible.file);
+			li.find('objectname').html(this.data.objects[o].name);
+			if(this.score && this.score[o]) li.find('objectname').html(Math.round(100*this.score[o].n/this.score[o].t)+"%");
 		}
-		$('#objects ul').html(html);
 		$('#objects ul li').off('click').on('click',{me:this},function(e){
 			e.data.me.changeObject($(this).attr('data'));
 			$('#objects ul li').removeClass('selected');
