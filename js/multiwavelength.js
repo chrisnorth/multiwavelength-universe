@@ -253,6 +253,7 @@
 			$('#objects ul li').removeClass('selected');
 			$(this).addClass('selected');
 			$('#objects h2').trigger('click');
+			window.location = '#main';
 		});
 	}
 
@@ -459,7 +460,7 @@
 
 	Activity.prototype.toggleObjects = function(){
 		$('#objects').toggleClass('closed')
-		$('#objects ul').slideToggle();
+		$('#objects ul').toggle();
 		
 		return this;
 	}
