@@ -2,7 +2,7 @@
 	"title": { "_title": "Main title", "_text": "The title of the activity", "_type": "string" },
 	"language" : { 
 		"_title": "About the language",
-		"code" : { "_title": "Language Code", "_text": "The two letter language ", "_type": "string" },
+		"code" : { "_title": "Language Code", "_text": "The two letter language code", "_type": "string" },
 		"name" : { "_title": "Language Name", "_text": "This is the name of the language in that language e.g. English, Fran&#231;ais, Espa&#241;ol, and &#2350;&#2366;&#2344;&#2325; &#2361;&#2367;&#2344;&#2381;&#2342;&#2368;. It appears in the language menu.", "_type": "string" },
 		"alignment" : { "_title": "Language Direction", "_text": "The direction that the language goes.", "_type": "select", "_options": [{"name":"left to right","value":"left"},{"name":"right to left","value":"right"}] }
 	},
