@@ -385,6 +385,7 @@ img { border: 1px solid #808080; display: inline-block; }
 
 @media only screen and (max-width: 730px){
 	#selector .leftcol { border-right: 0; }
+	.rtl #selector .leftcol { border-left: 0; }
 	.comparison .leftcol { margin-bottom: 1em; width: auto; text-align: center; }
 	#selector, .row, .col { display: block; }
 	.answers .visible { display: none; }
@@ -395,13 +396,14 @@ img { border: 1px solid #808080; display: inline-block; }
 @media only screen and (max-width: 600px){
 	#info, .helpinner, #main, #footer { padding: 1em; }
 	#help h1 { left: 0.5em; font-size: 1.6em; }
+	.rtl #help h1 { right: 0.5em; left: 0; font-size: 1.6em; }
 	#help h2 { font-size: 1.2em; }
 	#help #banner { height: 4em; }
 	#help .attribution { color: #bbb; }
 	.comparison .col { padding: 0.5em; }
 	#selector img { height: 240px; }
 	.section { padding: 0.5em; }
-	#info .illustration { float: none; max-width: 100%; margin-right: 0em; }
+	#info .illustration { float: none; max-width: 100%; margin-right: 0em; margin-left: 0; }
 	.btn { margin-bottom: 0.5em; }
 }
 
