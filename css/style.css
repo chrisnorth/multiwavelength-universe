@@ -407,21 +407,7 @@ img { border: 1px solid #808080; display: inline-block; }
 
 @media only screen and (max-width: 380px){
 
-	#titlebar {
-		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-		display: -ms-flexbox;      /* TWEENER - IE 10 */
-		display: -webkit-flex;     /* NEW - Chrome */
-		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-	}
-	#titlebar .title, #titlebar #menu {
-		-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-		-moz-box-flex: 1;         /* OLD - Firefox 19- */
-		width: 20%;               /* For old syntax, otherwise collapses. */
-		-webkit-flex: 1;          /* Chrome */
-		-ms-flex: 1;              /* IE 10 */
-		flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-	}
+	#titlebar .title, #titlebar #menu { max-width: 50%; }
 	#titlebar #menu { text-align: right; }
 	.rtl #titlebar #menu { text-align: left; }
 	#titlebar .item { margin-right: 0.5em; }
