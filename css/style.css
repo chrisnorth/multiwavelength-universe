@@ -123,7 +123,7 @@ img { border: 1px solid #808080; display: inline-block; }
 }
 #selector .answers img { max-width: 112px; height: auto; width: 90%; }
 .leftcol,#selector .leftcol img { width: 240px; }
-#selector img { height: 240px; }
+#selector img { height: 240px; width: 240px; }
 #selector .rightcol img { cursor: pointer; }
 .rightcol { width: auto; }
 .wavelengths {
