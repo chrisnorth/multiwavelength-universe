@@ -177,11 +177,6 @@
 				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
 				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
 			},
-			"uv" : {
-				"_title": "UV",
-				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
-				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
-			},
 			"xray" : {
 				"_title": "X-ray",
 				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },

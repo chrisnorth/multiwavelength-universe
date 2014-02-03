@@ -544,7 +544,7 @@
 		this.score[this.id].n = n;
 		this.score[this.id].t = t;
 
-		$('#result').html(this.data.check.result.replace('%PERCENT%', Math.round(100*n/t)+"%").replace('%CORRECT%',n).replace('%TOTAL%',t));
+		$('#result').html(this.data.check.result.replace('%PERCENT%', Math.round(100*n/t)+"%").replace('%CORRECT%',n).replace('%WRONG%',(t-n)).replace('%TOTAL%',t));
 		$('#objects ul li').eq(this.id).find('.score').html(Math.round(100*n/t)+"%");
 
 		var n = 0;
@@ -562,7 +562,7 @@
 
 	Activity.prototype.updateTotal = function(n,t){
 		var r = (t > 0) ? Math.round(100*n/t) : 0;
-		if(typeof n==="number" && typeof t==="number") $('#average .label').html(this.data.check.average.replace('%PERCENT%',r+"%").replace('%CORRECT%',n).replace('%TOTAL%',t)).data('score',Math.round(100*t));
+		if(typeof n==="number" && typeof t==="number") $('#average .label').html(this.data.check.average.replace('%PERCENT%',r+"%").replace('%CORRECT%',n).replace('%WRONG%',(t-n)).replace('%TOTAL%',t)).data('score',Math.round(100*t));
 		return this;
 	}
 

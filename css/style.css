@@ -79,8 +79,8 @@ img { border: 1px solid #808080; display: inline-block; }
 
 #objects.section { padding: 0px; }
 #objects { background-color:white; }
-#objects .opener { float: right; cursor: pointer; width: 0; height: 0; margin: 1em 1em 0 0; border-bottom: 0.5em solid #202020; border-top: 0; border-left: 0.5em solid transparent; border-right: 0.5em solid transparent; }
-.rtl #objects .opener { float: left; margin: 1em 0 0 1em; }
+#objects .opener { float: left; cursor: pointer; width: 0; height: 0; margin: 0.85em 0.5em 0 1em; border-bottom: 0.5em solid #202020; border-top: 0; border-left: 0.5em solid transparent; border-right: 0.5em solid transparent; }
+.rtl #objects .opener { float: right; margin: 1em 1em 0 0.5em; }
 #objects.closed .opener { border-top: 0.5em solid #202020; border-bottom: 0; border-left: 0.5em solid transparent; border-right: 0.5em solid transparent; }
 #objects h2 {
 	cursor: pointer;
