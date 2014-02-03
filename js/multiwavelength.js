@@ -114,6 +114,7 @@
 		this.image = "images/image.png";
 		this.id = -1;
 		this.key = "";
+		this.keys = [];
 
 		return this;
 	}
@@ -134,12 +135,11 @@
 		else w = $(window).width() - $('.comparison .leftcol').outerWidth() - o*2 - padd;
 		
 		// Fix language menu position
-		console.log($('body').width(),$('#menu .langbtn').position().left,$('#menu .langbtn').width(),parseInt($('body').css('font-size')))
 		var fs = parseInt($('body').css('font-size'));
 		$('#languageswitch').css((this.data.language.alignment=="right" ? {'left':($('#menu .langbtn').position().left+fs*0.25)+'px','right':'auto'} : {'right':($('body').width()-$('#menu .langbtn').position().left-$('#menu .langbtn').width()-fs)+'px','left':'auto'}));
 		
 
-		$('.comparison .rightcol ul').css('max-width',w);
+		$('.comparison .rightcol .list').css('max-width',w);
 		var m = (this.data.language.alignment=="left" ? "" : (w-$('.comparison .rightcol ul li.image:last-child').width())+"px");
 		var m2 = (this.data.language.alignment=="left" ? (w-$('.comparison .rightcol ul li.image:last-child').width())+"px" : "");
 		$('.comparison .rightcol ul li.image:last-child').css({'margin-left':m,'margin-right': m2});
@@ -235,6 +235,20 @@
 
 		this.resize();
 
+		// Define the keyboard capture
+		$(document).bind("keydown",{me:this},function(e){
+			if(!e) e=window.event;
+			var code = e.keyCode || e.charCode || e.which || 0;
+			e.data.me.keypress(code,e)
+		});
+
+		// Define keyboard commands
+		this.registerKey(37,function(){ // user presses the left cursor
+			this.scrollThumbnails(-1)
+		}).registerKey(39,function(){ // user presses the right cursor
+			this.scrollThumbnails(1)
+		});
+
 		return this;
 	}
 	
@@ -255,6 +269,17 @@
 			$('#objects h2').trigger('click');
 			window.location = '#main';
 		});
+	}
+
+	Activity.prototype.scrollThumbnails = function(dir){
+
+		var im = $('#selector .rightcol .list ul li');
+		var i = Math.floor($('#selector .rightcol .list ul').scrollLeft()/$(im[0]).outerWidth())+dir;
+		if(i >= 0 && i < im.length){
+			$('#selector .rightcol .list ul').scrollLeft(im.eq(i).position().left-im.eq(0).position().left)
+		}
+
+		return this;
 	}
 
 	Activity.prototype.updateLanguage = function(){
@@ -534,6 +559,32 @@
 		return this;
 	}
 
+	// Press a key
+	Activity.prototype.keypress = function(charCode,event){
+		for(i = 0 ; i < this.keys.length ; i++){
+			if(this.keys[i].charCode == charCode){
+				this.keys[i].fn.call(this,{event:event});
+				break;
+			}
+		}	
+	}
+
+	// Register keyboard commands and associated functions
+	Activity.prototype.registerKey = function(charCode,fn,txt){
+		if(typeof fn!="function") return this;
+		if(typeof charCode!="object") charCode = [charCode];
+		for(c = 0 ; c < charCode.length ; c++){
+			ch = (typeof charCode[c]=="string") ? charCode[c].charCodeAt(0) : charCode[c];
+			available = true;
+			for(i = 0 ; i < this.keys.length ; i++){
+				if(this.keys.charCode == ch) available = false;
+			}
+			if(available){
+				this.keys.push({charCode:ch,char:String.fromCharCode(ch),fn:fn,txt:txt});
+			}
+		}
+		return this;
+	}
 
 	$.multiwavelength = function(placeholder,input) {
 		if(typeof input=="object") input.container = placeholder;

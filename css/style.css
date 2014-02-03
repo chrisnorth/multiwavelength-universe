@@ -173,15 +173,12 @@ img { border: 1px solid #808080; display: inline-block; }
 	position: relative;
 }
 #selector .rightcol .list {
-	display: inline-block;
-	width: auto;
 	position: relative;
+	overflow: auto;
+	overflow-x: auto;
 }
 #selector .rightcol .list ul {
-	width: 100%;
-	max-width: 914px;
 	white-space: nowrap;
-	overflow-x: auto;
 	overflow-y: hidden;
 	border: 0;
 	padding: 0 0 0.5em 0;
