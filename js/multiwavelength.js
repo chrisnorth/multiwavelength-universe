@@ -465,6 +465,7 @@
 				$('.comparison .rightcol ul li').on('click',{me:this},function(e){
 					e.data.me.setImage($(this).find('img').attr('src'));
 				});
+				$('#selector .rightcol .list ul').scrollLeft(0);
 				this.resize();
 			}
 		}
