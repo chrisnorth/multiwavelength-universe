@@ -8,7 +8,8 @@
 	},
 	"selectobject" : {
 		"title": "Select an object",
-		"withobject": "Object: %OBJECT%"
+		"withobject": "Object: %OBJECT%",
+		"button": "Choose another object"
 	},
 	"instructions" : {
 		"visible": "The visible light image",

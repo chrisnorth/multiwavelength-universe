@@ -12,7 +12,8 @@
  },
  "selectobject": {
   "title": "Select an object",
-  "withobject": "Object: %OBJECT%"
+  "withobject": "Object: %OBJECT%",
+  "button": "Choose another object"
  },
  "instructions": {
   "select": "Choose the corresponding %WAVELENGTH% image",

@@ -234,6 +234,9 @@
 		$('#tools .btn-info').on('click',{me:this},function(e){
 			if(!$(this).attr('disabled')) e.data.me.toggleInfo();
 		});
+		$('#tools .btn-next').on('click',{me:this},function(e){
+			if(!$(this).attr('disabled') && $('#objects').hasClass('closed')) e.data.me.toggleObjects();
+		}).hide();
 
 		this.updateTotal(0);
 
@@ -322,6 +325,8 @@
 	
 		$('#tools .btn-info').html(this.data.info.button);
 
+		$('#tools .btn-next').html(this.data.selectobject.button);
+
 		this.resize();
 		
 		return this;
@@ -346,6 +351,8 @@
 	Activity.prototype.changeObject = function(i){
 
 		if(this.data.objects[i].images['visible']){
+
+			$('#tools .btn-next').hide();
 
 			if($('#help').is(':visible')) $('#menu a.helpbtn').trigger('click');
 
@@ -531,6 +538,7 @@
 
 		// Make the 'more info' button active
 		$('#tools .btn.disabled').removeClass('disabled');
+		$('#tools .btn.btn-next').show();
 
 		this.setScore(n,ws.length);
 

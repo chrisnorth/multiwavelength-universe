@@ -16,6 +16,7 @@
 		"_title": "Object Selector",
 		"title": { "_title": "Selector", "_text": "Text prompting user to select an object", "_type": "string" },
 		"withobject": { "_title": "Modified object selector", "_text": "The object selector with an object. <code>%OBJECT%</code> will be replaced by the object name", "_type": "string" }
+		"button" : { "_title": "Next button", "_text": "The label on the button to open the object selector", "_type": "string" },
 	},
 	"instructions" : {
 		"_title": "Instructions",
