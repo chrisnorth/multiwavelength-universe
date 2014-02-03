@@ -177,6 +177,19 @@ img { border: 1px solid #808080; display: inline-block; }
 	overflow: auto;
 	overflow-x: auto;
 }
+#selector .rightcol .leftbtn,#selector .rightcol .rightbtn {
+	position: absolute;
+	top:0px;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	cursor: pointer;
+	width: 2em;
+	display: none;
+}
+#selector .rightcol .leftbtn:after { content:""; position: absolute; width: 0; height: 0; top: 50%; left: 0.5em; margin: 0; border-bottom: 0.75em solid transparent; border-right: 0.75em solid white; border-top: 0.75em solid transparent; }
+#selector .rightcol .rightbtn:after { content:""; position: absolute; width: 0; height: 0; top: 50%; left: 0.5em; margin: 0; border-bottom: 0.75em solid transparent; border-left: 0.75em solid white; border-top: 0.75em solid transparent; }
+#selector .rightcol .leftbtn { left: 0px; }
+#selector .rightcol .rightbtn { right: 0px; }
 #selector .rightcol .list ul {
 	white-space: nowrap;
 	overflow-y: hidden;
@@ -412,6 +425,9 @@ img { border: 1px solid #808080; display: inline-block; }
 	.section { padding: 0.5em; }
 	#info .illustration { float: none; max-width: 100%; margin-right: 0em; margin-left: 0; }
 	.btn { margin-bottom: 0.5em; }
+	#selector .rightcol .list,#selector .rightcol .list ul { overflow: hidden; overflow-x: hidden; line-height: 0; padding-bottom: 0px; }
+	#selector .rightcol .list ul { margin-left: 1em; }
+	#selector .rightcol .leftbtn,#selector .rightcol .rightbtn { display: block; }
 }
 
 @media only screen and (max-width: 380px){

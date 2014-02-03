@@ -221,6 +221,12 @@
 
 		this.updateThumbnails();
 
+		if($('.leftbtn').length==0) $('#selector .list ul').before('<div class="leftbtn"></div>');
+		if($('.rightbtn').length==0) $('#selector .list ul').after('<div class="rightbtn"></div>');
+		$('#selector .list .leftbtn').on('click',{me:this},function(e){ e.data.me.scrollThumbnails(-1); });
+		$('#selector .list .rightbtn').on('click',{me:this},function(e){ e.data.me.scrollThumbnails(1); });
+
+
 		$('#tools .btn-check').on('click',{me:this},function(e){
 			e.preventDefault();
 			if(!$(this).attr('disabled')) e.data.me.check();
@@ -244,9 +250,9 @@
 
 		// Define keyboard commands
 		this.registerKey(37,function(){ // user presses the left cursor
-			this.scrollThumbnails(-1)
+			this.scrollThumbnails(-1);
 		}).registerKey(39,function(){ // user presses the right cursor
-			this.scrollThumbnails(1)
+			this.scrollThumbnails(1);
 		});
 
 		return this;
@@ -445,7 +451,7 @@
 				// Update title
 				var wv = this.getWavelength(this.key);
 				$('.comparison .rightcol h2').html(this.data.instructions.select.replace('%WAVELENGTH%', wv.title).replace('%OBJECT%',this.data.objects[this.id].name));
-	
+
 				$('.comparison .rightcol ul li').off('click');
 
 				// Randomize the order of the images list items
