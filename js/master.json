@@ -4,6 +4,7 @@
 		"_title": "About the language",
 		"code" : { "_title": "Language Code", "_text": "The two letter language code", "_type": "string" },
 		"name" : { "_title": "Language Name", "_text": "This is the name of the language in that language e.g. English, Fran&#231;ais, Espa&#241;ol, and &#2350;&#2366;&#2344;&#2325; &#2361;&#2367;&#2344;&#2381;&#2342;&#2368;. It appears in the language menu.", "_type": "string" },
+		"translator" : { "_title": "Translator", "_text": "This is the name of the translator. It can contain a hyperlink. Not currently displayed but may be in the future.", "_type": "string" },
 		"alignment" : { "_title": "Language Direction", "_text": "The direction that the language goes.", "_type": "select", "_options": [{"name":"left to right","value":"left"},{"name":"right to left","value":"right"}] }
 	},
 	"help": {
@@ -15,8 +16,8 @@
 	"selectobject" : {
 		"_title": "Object Selector",
 		"title": { "_title": "Selector", "_text": "Text prompting user to select an object", "_type": "string" },
-		"withobject": { "_title": "Modified object selector", "_text": "The object selector with an object. <code>%OBJECT%</code> will be replaced by the object name", "_type": "string" }
-		"button" : { "_title": "Next button", "_text": "The label on the button to open the object selector", "_type": "string" },
+		"withobject": { "_title": "Modified object selector", "_text": "The object selector with an object. <code>%OBJECT%</code> will be replaced by the object name", "_type": "string" },
+		"button" : { "_title": "Next button", "_text": "The label on the button to open the object selector", "_type": "string" }
 	},
 	"instructions" : {
 		"_title": "Instructions",
