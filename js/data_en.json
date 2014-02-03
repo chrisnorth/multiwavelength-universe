@@ -73,7 +73,7 @@
 				"credit" : "Herschel"
 			},
 			"radio" : {
-				"file": "cenA_radio_vla.gif",
+				"file": "cenA_radio_vla.jpg",
 				"credit": "VLA"
 			},
 			"mir" : {
@@ -164,7 +164,7 @@
 				"credit" : "Hubble"
 			},
 			"radio" : {
-				"file" : "casA_radio_NRAO.gif",
+				"file" : "casA_radio_NRAO.jpg",
 				"credit" : "VLA"
 			},
 			"fir" : {
