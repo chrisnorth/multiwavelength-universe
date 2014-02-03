@@ -9,7 +9,7 @@ body {
 h1, h2, h3 { font-size: 1em; margin: 0px; }
 img { border: 1px solid #808080; display: inline-block; }
 
-#container { min-height: 100%; background-color: #e6e6e6; }
+#container { min-height: 100%; background-color: #e6e6e6; width: 100%; }
 .fullscreen { overflow-y: auto; }
 .section { padding: 0.5em 1em; border-bottom: 1px solid #999999; max-width: 100%; }
 
@@ -145,7 +145,7 @@ img { border: 1px solid #808080; display: inline-block; }
 .wavelength.wrong img { box-shadow: 0 0 4px 4px #df0000; -moz-box-shadow: 0 0 4px #df0000; -webkit-box-shadow: 0 0 4px #df0000; }
 .leftcol .wavelength { width: 100%; }
 .wavelength { text-align: center; }
-.wavelength .label { text-decoration: none; color: inherit; line-height: 1em; text-align: center; margin: 0px; padding: 1em 0 0.5em 0; position: relative; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wavelength .label { text-decoration: none; color: inherit; line-height: 1.5em; text-align: center; margin: 0px; padding: 1em 0 0.5em 0; position: relative; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rightcol .wavelength:hover { cursor: pointer; }
 .rightcol .wavelength:hover img { box-shadow: 1px 1px 2px rgba(0,0,0,0.2); -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2); -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2); border: 1px solid black; }
 .rightcol .wavelength:hover .label { color: #202020; font-weight: bold; }
