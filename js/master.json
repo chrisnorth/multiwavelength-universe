@@ -28,12 +28,13 @@
 		"_title": "Check answers",
 		"button" : { "_title": "Button", "_text": "The label on the button", "_type": "string" },
 		"result" : { "_title": "Result", "_text": "The keys <code>%CORRECT%</code> and <code>%TOTAL%</code> will be replaced by the appropriate numbers.", "_type": "string" },
-		"average" : { "_title": "Total", "_text": "The keys <code>%CORRECT%</code>, <code>%TOTAL%</code> and <code>%PERCENT%</code> will be replaced by the appropriate numbers", "_type": "string" }
+		"average" : { "_title": "Total", "_text": "The keys <code>%CORRECT%</code>, <code>%TOTAL%</code>, <code>%WRONG%</code> and <code>%PERCENT%</code> will be replaced by the appropriate numbers", "_type": "string" }
 	},
 	"info" : {
 		"_title": "Information",
 		"title" : { "_title": "Title", "_text": "The title for the information area.", "_type": "string" },
-		"button" : { "_title": "Button", "_text": "The label on the button that toggles the information area.", "_type": "string" }
+		"button" : { "_title": "Button", "_text": "The label on the button that toggles the information area.", "_type": "string" },
+		"more": { "_title": "Object links", "_text": "Used to create links for the object using its RA/Dec. The keys <code>%RA%</code>, <code>%DEC%</code>, <code>%LATITUDE%</code> (Dec for Google Sky), <code>%LONGITUDE%</code> (RA for Google Sky) and <code>%NAME%</code> will be replaced by the appropriate values. This can contain HTML.", "_type": "textarea" }
 	},
 	"banners": [{
 		"_title": "Banner Images",

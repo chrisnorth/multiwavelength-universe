@@ -412,7 +412,8 @@
 			this.setWavelength(key);
 			
 			// Update the info area
-			$('#info').html('<div class="illustration"><img src="'+src+'" alt="'+this.data.objects[i].name+'" /><\/div><div class="about">'+this.data.objects[i].info+'<\/div><div class="extrainfo"><strong>View object with<\/strong>: <a href="http://www.google.com/sky/#longitude='+(this.data.objects[i].coord.ra-180)+'&latitude='+this.data.objects[i].coord.dec+'&zoom=8" target="_sky">Google Sky<\/a> or <a href="http://www.chromoscope.net/?ra='+this.data.objects[i].coord.ra+'&dec='+this.data.objects[i].coord.dec+'&z=6" target="_chromoscope">Chromoscope<\/a><br /><strong>Coordinates:<\/strong> RA: '+this.data.objects[i].coord.ra+', Dec: '+this.data.objects[i].coord.dec+'<\/div><div class="clear"><\/div>').hide();
+			var more = (this.data.info.more) ? this.data.info.more.replace(/%RA%/g,this.data.objects[i].coord.ra).replace(/%DEC%/g,this.data.objects[i].coord.dec).replace(/%LONGITUDE%/g,(this.data.objects[i].coord.ra-180)).replace(/%LATITUDE%/g,this.data.objects[i].coord.dec).replace(/%NAME%/g,this.data.objects[i].name) : "";
+			$('#info').html('<div class="illustration"><img src="'+src+'" alt="'+this.data.objects[i].name+'" /><\/div><div class="about">'+this.data.objects[i].info+'<\/div><div class="extrainfo">'+more+'<\/div><div class="clear"><\/div>').hide();
 			
 			// Make the buttons inactive
 			$('#tools .btn').addClass('disabled');

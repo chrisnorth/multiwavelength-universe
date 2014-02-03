@@ -22,7 +22,8 @@
 	},
 	"info" : {
 		"title" : "Information",
-		"button" : "More information about this object"
+		"button" : "More information about this object",
+		"more": "<strong>View object with</strong>: <a href=\"http://www.google.com/sky/#longitude=%LONGITUDE%&latitude=%LATITUDE%&zoom=8\" target=\"_sky\">Google Sky</a> or <a href=\"http://www.chromoscope.net/?ra=%RA%&dec=%DEC%&z=6\" target=\"_chromoscope\">Chromoscope</a><br /><strong>Coordinates:<\/strong> RA: %RA%, Dec: %DEC%"
 	},
 	"banners": [{
 		"credit": "ESA/NASA/Herschel/Hubble/DSS",
