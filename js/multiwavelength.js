@@ -205,14 +205,20 @@
 		// Pick a random banner
 		var b = d.banners[Math.round((d.banners.length-1)*Math.random())];
 		$('#help').html('<div id="banner" style="background-image:url(\''+b.file+'\')"><h1>'+d.help.title+'<\/h1><p class="attribution">'+b.credit+'<\/p><\/div><div class="helpinner">'+d.help.html+'<\/div>');
-		if(fullScreenApi.supportsFullScreen){
-			$('#menu .helpbtn').after('<img src="images/fullscreen.png" class="fullscreenbtn" />');
-			// Bind the fullscreen function to the double-click event if the browser supports fullscreen
-			$('.fullscreenbtn').on('click', {me:this}, function(e){
-				e.data.me.toggleFullScreen();
-			});
-		}
 
+		//check if in a iframe
+		var isInIframe = (window.location != window.parent.location) ? true : false;
+		if(isInIframe){
+			$('#menu .helpbtn').after('<a href="#" target="_top"><img src="images/fullscreen.png" class="fullscreenbtn" /></a>');			
+		}else{
+			if(fullScreenApi.supportsFullScreen){
+				$('#menu .helpbtn').after('<img src="images/fullscreen.png" class="fullscreenbtn" />');
+				// Bind the fullscreen function to the double-click event if the browser supports fullscreen
+				$('.fullscreenbtn').on('click', {me:this}, function(e){
+					e.data.me.toggleFullScreen();
+				});
+			}
+		}	
 		// Update the select object text
 		$('#objects h2').before('<div class="opener"><\/div>');
 		$('#objects h2, #objects .opener').on('click',{me:this},function(e){
