@@ -124,6 +124,9 @@
 		$(window).resize({me:this},function(e){ _obj.resize(); });
 		this.load(this.lang,this.config);
 
+		// Initially hide the wavelength selector until we've selected an object
+		$('#main').hide();
+
 		return this;
 	}
 	
@@ -279,6 +282,7 @@
 			$('#objects ul li').removeClass('selected');
 			$(this).addClass('selected');
 			$('#objects h2').trigger('click');
+
 			window.location = '#main';
 		});
 	}
@@ -353,6 +357,10 @@
 
 
 	Activity.prototype.changeObject = function(i){
+
+console.log('show')
+		$('#main').show();
+
 
 		if(this.data.objects[i].images['visible']){
 
