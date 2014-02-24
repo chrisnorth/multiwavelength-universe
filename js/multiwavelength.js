@@ -183,6 +183,10 @@
 
 		d = this.data;
 
+
+		// Update page title (make sure we encode the HTML entities)
+		if(d.title) $('html title').text(htmlDecode(d.title));
+
 		// Update title
 		$('#titlebar h1').replaceWith('<div class="title">'+d.title+'<\/div>');
 		
@@ -612,6 +616,10 @@ console.log('show')
 			}
 		}
 		return this;
+	}
+
+	function htmlDecode(input){
+		return $('<div />').html(input).text();
 	}
 
 	$.multiwavelength = function(placeholder,input) {
