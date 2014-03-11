@@ -124,6 +124,9 @@
 		$(window).resize({me:this},function(e){ _obj.resize(); });
 		this.load(this.lang,this.config);
 
+		// Initially hide the wavelength selector until we've selected an object
+		$('#main').hide();
+
 		return this;
 	}
 	
@@ -179,6 +182,10 @@
 	Activity.prototype.config = function(){
 
 		d = this.data;
+
+
+		// Update page title (make sure we encode the HTML entities)
+		if(d.title) $('html title').text(htmlDecode(d.title));
 
 		// Update title
 		$('#titlebar h1').replaceWith('<div class="title">'+d.title+'<\/div>');
@@ -279,6 +286,7 @@
 			$('#objects ul li').removeClass('selected');
 			$(this).addClass('selected');
 			$('#objects h2').trigger('click');
+
 			window.location = '#main';
 		});
 	}
@@ -353,6 +361,10 @@
 
 
 	Activity.prototype.changeObject = function(i){
+
+console.log('show')
+		$('#main').show();
+
 
 		if(this.data.objects[i].images['visible']){
 
@@ -604,6 +616,10 @@
 			}
 		}
 		return this;
+	}
+
+	function htmlDecode(input){
+		return $('<div />').html(input).text();
 	}
 
 	$.multiwavelength = function(placeholder,input) {
