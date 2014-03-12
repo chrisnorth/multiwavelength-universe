@@ -1,5 +1,5 @@
 /*
-	Translation library
+	Translation library v0.2
 */
 // Extend jQuery
 (function ($) {
@@ -84,6 +84,7 @@
 			error: function(){
 				// We couldn't find this language so load the English version
 				// so there is something to work from.
+				console.log("Couldn't load "+lang)
 				if(lang != "en") this.loadLanguage('en',callback,lang);
 			},
 			success: function(data){
@@ -129,6 +130,7 @@
 		var inp = "";
 		var arr = false;
 		var n;
+		var css;
 		
 		if(!k) k = "";
 
@@ -143,7 +145,8 @@
 				if(m[key]._text && m[key]._type){
 					inp = "";
 					if(m[key]._type=="textarea"){
-						inp = '<textarea name="'+newk+'">'+sanitize((p ? p[key] : ""))+'</textarea>';
+						css = (m[key]._height) ? ' style="height:'+m[key]._height+'"' : "";
+						inp = '<textarea name="'+newk+'"'+css+'>'+sanitize((p ? p[key] : ""))+'</textarea>';
 					}else if(m[key]._type=="noedit"){
 						inp = '<input type="hidden" name="'+newk+'" value="'+sanitize((p ? p[key] : ""))+'" />'+sanitize((p ? p[key] : ""));
 					}else if(m[key]._type=="select"){
@@ -216,7 +219,8 @@
 	Translator.prototype.getOutput = function(){
 		var json = sanitize($("form#language").formToJSON(this));
 		//json = json.substring(0,json.length-4).substring(17).replace(/\n\t\t/g,'\n\t')+'}';
-		var output = "<pre>"+json+"</pre>";
+		var css = (json) ? ' style="height:'+(json.split("\n").length + 5)+'em;font-family:monospace;"' : ''
+		var output = '<textarea onfocus="this.select()"'+css+' wrap="off">'+json+"</textarea>";
 
 		if($('#output').length == 0) $('#translation').after('<div id="output"></div>')
 
