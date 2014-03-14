@@ -15,10 +15,10 @@
    "withobject": "Object: %OBJECT%",
    "button": "Choose another object"
   },
-  "instructions": {
-   "select": "Choose the corresponding %WAVELENGTH% image",
-   "visible": "The visible light image"
-  },
+    "instructions" : {
+	"visible": "The visible light image",
+	"select" : "Choose the corresponding %WAVELENGTH% image (scroll right for more)"
+    },
   "check": {
    "button": "Check your answers",
    "result": "You got <strong>%CORRECT%/%TOTAL%</strong> correct.",
