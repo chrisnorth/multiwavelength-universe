@@ -551,5 +551,125 @@
 			"dec" : { "_title": "Declination", "_text": "The Dec for the object (decimal)", "_type": "string" }
 		},
 		"info" : { "_title": "Information", "_text": "A description of the object.", "_type": "textarea" }
+	},{
+		"_title": "Object 13",
+		"name" : { "_title": "Name", "_text": "The name of the object", "_type": "string" },
+		"images" : {
+			"visible" : {
+				"_title": "Visible",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"fir" : {
+				"_title": "Far-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"radio" : {
+				"_title": "Radio",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"mir" : {
+				"_title": "Mid-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"uv" : {
+				"_title": "UV",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"xray" : {
+				"_title": "X-ray",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			}
+		},
+		"coord" : {
+			"ra" : { "_title": "Right Ascension", "_text": "The RA for the object (decimal)", "_type": "string" },
+			"dec" : { "_title": "Declination", "_text": "The Dec for the object (decimal)", "_type": "string" }
+		},
+		"info" : { "_title": "Information", "_text": "A description of the object.", "_type": "textarea" }
+	},{
+		"_title": "Object 14",
+		"name" : { "_title": "Name", "_text": "The name of the object", "_type": "string" },
+		"images" : {
+			"visible" : {
+				"_title": "Visible",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"fir" : {
+				"_title": "Far-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"radio" : {
+				"_title": "Radio",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"mir" : {
+				"_title": "Mid-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"uv" : {
+				"_title": "UV",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"xray" : {
+				"_title": "X-ray",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			}
+		},
+		"coord" : {
+			"ra" : { "_title": "Right Ascension", "_text": "The RA for the object (decimal)", "_type": "string" },
+			"dec" : { "_title": "Declination", "_text": "The Dec for the object (decimal)", "_type": "string" }
+		},
+		"info" : { "_title": "Information", "_text": "A description of the object.", "_type": "textarea" }
+	},{
+		"_title": "Object 15",
+		"name" : { "_title": "Name", "_text": "The name of the object", "_type": "string" },
+		"images" : {
+			"visible" : {
+				"_title": "Visible",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"fir" : {
+				"_title": "Far-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"radio" : {
+				"_title": "Radio",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"mir" : {
+				"_title": "Mid-Infrared",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"uv" : {
+				"_title": "UV",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			},
+			"xray" : {
+				"_title": "X-ray",
+				"file": { "_title": "File", "_text": "The filename for the image", "_type": "noedit" },
+				"credit": { "_title": "Credit", "_text": "The credit for the image", "_type": "string" }
+			}
+		},
+		"coord" : {
+			"ra" : { "_title": "Right Ascension", "_text": "The RA for the object (decimal)", "_type": "string" },
+			"dec" : { "_title": "Declination", "_text": "The Dec for the object (decimal)", "_type": "string" }
+		},
+		"info" : { "_title": "Information", "_text": "A description of the object.", "_type": "textarea" }
 	}]
 }
