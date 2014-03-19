@@ -197,7 +197,7 @@ img { border: 1px solid #808080; display: inline-block; }
 	border: 0;
 	padding: 0 0 0.5em 0;
 }
-#selector .leftcol { border-right: 2em solid white; }
+#selector .leftcol { border-right: 1em solid white;}
 .rtl #selector .leftcol { border-left: 2em solid white; border-right: 0px; }
 #selector .rightcol .list li { margin-right: 1em; display:inline; }
 .rtl #selector .rightcol .list li { margin-right: 0; margin-left: 1em; }
