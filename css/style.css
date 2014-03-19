@@ -70,6 +70,7 @@ img { border: 1px solid #808080; display: inline-block; }
 #help p:first-child { margin-top: 0px; }
 #help p:last-child, #help ol:last-child { margin-bottom: 0px; }
 #info, .helpinner, #main, #footer { padding: 2em; }
+#main { padding: 1em; }
 #info { display: none; }
 #info .illustration { float: left; width: 352px; margin-right: 1em; }
 .rtl #info .illustration { float: right; margin-left: 1em; margin-right: 0px; }
