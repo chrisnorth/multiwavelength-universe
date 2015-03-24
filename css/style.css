@@ -151,6 +151,9 @@ img { border: 1px solid #808080; display: inline-block; }
 .rightcol .wavelength:hover { cursor: pointer; }
 .rightcol .wavelength:hover img { box-shadow: 1px 1px 2px rgba(0,0,0,0.2); -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2); -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2); border: 1px solid black; }
 .rightcol .wavelength:hover .label { color: #202020; font-weight: bold; }
+.wavelength .tick,.wavelength .cross { display: none; }
+.wavelength .img { position: relative; }
+.wavelength.correct .tick, .wavelength.wrong .cross { display: block; position: absolute; width: 100%; font-size: 3em; color: white; line-height: 1.4em; text-shadow: 4px 4px 8px black; }
 
 #selector ul, #selector ol {
 	list-style: none;

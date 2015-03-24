@@ -391,7 +391,7 @@ console.log('show')
 						extra = " "+(this.score[this.id].answers[key].result ? "correct" : "wrong");
 						src = (typeof this.score[this.id].answers[key].src==="string") ? this.score[this.id].answers[key].src : "";
 					}
-					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><img src="'+src+'" \/><\/div>';
+					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><div class="img"><div class="tick">&#10003;</div><div class="cross">&#10007;</div><img src="'+src+'" \/></div><\/div>';
 				}
 			}
 
