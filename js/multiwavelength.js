@@ -154,6 +154,7 @@
 	// If it fails and this was the long variation of the language (e.g. "en-gb" or "zh-yue"), try the short version (e.g. "en" or "zh")
 	Activity.prototype.load = function(l,fn){
 		if(!l) l = this.langshort;
+		if(!this.langs[l]) l = "en";
 		var url = this.dataurl.replace('%LANG%',l);
 		$.ajax({
 			url: url,
