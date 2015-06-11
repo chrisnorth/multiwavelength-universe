@@ -154,6 +154,7 @@
 	// If it fails and this was the long variation of the language (e.g. "en-gb" or "zh-yue"), try the short version (e.g. "en" or "zh")
 	Activity.prototype.load = function(l,fn){
 		if(!l) l = this.langshort;
+		if(!this.langs[l]) l = "en";
 		var url = this.dataurl.replace('%LANG%',l);
 		$.ajax({
 			url: url,
@@ -391,7 +392,7 @@ console.log('show')
 						extra = " "+(this.score[this.id].answers[key].result ? "correct" : "wrong");
 						src = (typeof this.score[this.id].answers[key].src==="string") ? this.score[this.id].answers[key].src : "";
 					}
-					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><img src="'+src+'" \/><\/div>';
+					html += '<div class="'+key+' wavelength'+extra+'" data="'+key+'"><a href="#'+key+'" class="label">'+this.data.wavelengths[w].title+'<\/a><div class="img"><div class="tick">&#10003;</div><div class="cross">&#10007;</div><img src="'+src+'" \/></div><\/div>';
 				}
 			}
 
